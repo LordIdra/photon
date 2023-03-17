@@ -6,7 +6,7 @@
 
 // https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
 // https://en.wikipedia.org/wiki/ANSI_escape_code
-namespace colors {
+namespace Colors {
     const string WHITE = "\033[0;37m";
     const string CYAN  = "\033[0;36m";
 
@@ -19,30 +19,36 @@ namespace colors {
 
 namespace Errors {
     namespace Files {
-        auto NotFound(const string &path) -> void;
+        class NotFound : public std::runtime_error {
+        public:
+            NotFound(const string &path);
+        };
     }
 
-    namespace Asssembler {
-        auto InvalidOpcode(const int line, const string &opcode) -> void;
-        auto InvalidOperandCount(const int line, const int expected, const int actual) -> void;
-        auto InvalidOperandType(const int line, const int expected, const int actual) -> void;
-        auto InvalidOperand(const int line, const string &operand) -> void;
-        auto OperandOutOfBounds(const int line, const int operand) -> void;
+    namespace Assembler {
+        class InvalidOpcode : public std::runtime_error {
+        public:
+            InvalidOpcode(const int line, const string &opcode);
+        };
+
+        class InvalidOperandCount : public std::runtime_error {
+        public:
+            InvalidOperandCount(const int line, const int expected, const int actual);
+        };
+
+        class InvalidOperandType : public std::runtime_error {
+        public:
+            InvalidOperandType(const int line, const string &operand);
+        };
+
+        class InvalidOperandValue : public std::runtime_error {
+        public:
+            InvalidOperandValue(const int line, const string &operand);
+        };
+
+        class OperandOutOfBounds : public std::runtime_error {
+        public:
+            OperandOutOfBounds(const int line, const int operand);
+        };
     }
-    
-    enum ErrorCode {
-        FILES_NOT_FOUND,
-
-        INVALID_OPCODE,
-        INVALID_OPERAND_COUNT,
-        INVALID_OPERAND_TYPE,
-        INVALID_OPERAND,
-        OPERAND_OUT_OF_BOUNDS,
-    };
-
-    
-    auto Reset() -> void;
-    auto HasErrorCode() -> bool;
-    auto GetErrorCode() -> int;
-    auto OutputErrors() -> void;
 }

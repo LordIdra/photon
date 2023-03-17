@@ -15,7 +15,7 @@ ADD_EXECUTABLE(photon ${SOURCE_FILES} ${MAIN_FILE})
 TARGET_INCLUDE_DIRECTORIES(photon PRIVATE .)
 
 # Link libraries
-TARGET_LINK_LIBRARIES(photon PRIVATE photon_LIBRARY)
+TARGET_LINK_LIBRARIES(photon PRIVATE photon_library)
 
 # Custom commands
 ADD_CUSTOM_COMMAND(TARGET photon POST_BUILD COMMAND ${CMAKE_COMMAND} -E cmake_echo_color --cyan "--- MAIN  BUILT ---")

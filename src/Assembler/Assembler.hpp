@@ -103,7 +103,7 @@ namespace Assembler {
     const set<string> NIBBLE_INSTRUCTIONS = {"LDI", "STI", "BIU", "BIG", "BIL", "BIE", "BIN", "SET"};
     const set<string> NO_OPERAND_INSTRUCTIONS = {"NOP", "HLT"};
     const set<string> SINGLE_REGISTER_INSTRUCTIONS = {"INC", "DEC", "INV", "NOT", "MTD", "MFD", "TST"};
-    const set<string> DOUBLE_REGISTER_INSTRUCTIONS = {"ADD", "ADC", "SUB", "SBC", "XOR", "AND", "ORR", "LDD", "STD", "BDU", "BDG", "BDL", "BDE", "BDN"};
+    const set<string> DOUBLE_REGISTER_INSTRUCTIONS = {"ADD", "ADC", "SUB", "SBC", "XOR", "AND", "ORR", "LDD", "STD", "BDU", "BDG", "BDL", "BDE", "BDN", "MOV", "CMP"};
 
-    auto Assemble(const string &instruction) -> string;
+    auto Assemble(const int line, const string &instruction) -> string;
 }

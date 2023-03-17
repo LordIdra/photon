@@ -9,6 +9,7 @@ SET(MAIN_FILE
 
 # Source files
 SET(SOURCE_FILES
+    "Assembler/Assembler.cpp"
     "Files/Files.cpp"
     
     "Util/Util.cpp" 
@@ -18,8 +19,7 @@ SET(SOURCE_FILES
 # Test files
 SET(TEST_FILES
     "TestFiles.cpp"
-    "TestUtil.cpp"
-    "Util.cpp"
+    "TestAssembler.cpp"
 )
 
 #set(CMAKE_TOOLCHAIN_FILE "~/vcpkg/scripts/buildsystems/vcpkg.cmake")

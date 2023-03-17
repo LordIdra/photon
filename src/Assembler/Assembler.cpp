@@ -32,35 +32,35 @@ namespace Assembler {
             return OPCODES.find(opcode_string) != OPCODES.end();
         }
 
-        auto ExtractOperand(const int line, const string &instruction, string operand) -> pair<OperandType, int> {
-            OperandType type;
-            int value;
+        auto ExtractOperand(const int line, string operand) -> pair<OperandType, int> {
+            OperandType type = REGISTER;
+            int value = 0;
 
             if (operand.at(0) == 'r') {
                 type = REGISTER;
-                operand.erase(0);
+                operand.erase(0, 1);
             } else {
                 type = VALUE;
             }
 
             try {
-                value = atoi(operand.c_str());
-            } catch (std::exception e) {
-                Errors::Asssembler::InvalidOperand(line, operand);
-                value = 0;
+                value = std::stoi(operand);
+            } catch (std::exception &e) {
+                throw Errors::Assembler::InvalidOperandValue(line, operand);
             }
 
             return make_pair(type, value);
         }
 
-        auto ExtractOperands(int line, const string &instruction, const string &opcode_string, const vector<string> &operand_strings) -> vector<int>{
+        auto ExtractOperands(int line, const string &opcode_string, const vector<string> &operand_strings) -> vector<int>{
             vector<int> operands;
             for (int i = 0; i < operand_strings.size(); i++) {
-                pair<OperandType, int> operand = ExtractOperand(line, instruction, operand_strings.at(i));
+                std::cout << "|" << operand_strings.at(i);
+                pair<OperandType, int> operand = ExtractOperand(line, operand_strings.at(i));
 
-                // Check that operand actual dna expected operand type match
+                // Check that actual and expected operand type match
                 if (operand.first != OPERANDS.at(opcode_string).at(i)) {
-                    Errors::Asssembler::InvalidOperand(line, operand_strings.at(i));
+                    throw Errors::Assembler::InvalidOperandType(line, operand_strings.at(i));
                 }
 
                 operands.push_back(operand.second);
@@ -71,7 +71,7 @@ namespace Assembler {
 
         auto HandleBoundValue(int line, int &operand) -> void {
             if ((operand < MIN_VALUE) || (operand > MAX_VALUE)) {
-                Errors::Asssembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(line, operand);
             }
             if (operand < 0) {
                 operand += 256;
@@ -80,13 +80,13 @@ namespace Assembler {
 
         auto HandleBoundRegister(int line, int &operand) -> void {
             if ((operand < MIN_REGISTER) || (operand > MAX_REGISTER)) {
-                Errors::Asssembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(line, operand);
             }
         }
 
         auto HandleBoundAddress(int line, int &operand) -> void {
             if ((operand < MIN_ADDRESS) || (operand > MAX_ADDRESS)) {
-                Errors::Asssembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(line, operand);
             }
         }
 
@@ -110,18 +110,18 @@ namespace Assembler {
             }
         }
 
-        auto GetOperands(const int line, const string &instruction, const string &opcode_string, const string &operand_string) -> vector<int> {
+        auto GetOperands(const int line, const string &opcode_string, const string &operand_string) -> vector<int> {
             vector<string> operand_strings;
             Split(operand_string, operand_strings, ' ');
             
             // Check actual and expected operand count match
             const int expected_operand_count = OPERANDS.at(opcode_string).size();
             if (operand_strings.size() != expected_operand_count) {
-                Errors::Asssembler::InvalidOperandCount(line, operand_strings.size(), expected_operand_count);
+                throw Errors::Assembler::InvalidOperandCount(line, operand_strings.size(), expected_operand_count);
             }
 
             // Convert string operands to int operands
-            vector<int> operands = ExtractOperands(line, instruction, opcode_string, operand_strings);
+            vector<int> operands = ExtractOperands(line, opcode_string, operand_strings);
 
             // Check that any values are properly bounded and convert any negative numbers to equivalent unsigned values
             HandleBounds(line, opcode_string, operands);
@@ -147,7 +147,7 @@ namespace Assembler {
             return operand_binary;
         }
 
-        auto Combine(const string &opcode, const vector<int> operands) -> pair<int, int> {
+        auto Combine(const string &opcode, const vector<int> &operands) -> pair<int, int> {
             int first_byte = 0;
             int second_byte = 0;
 
@@ -155,6 +155,8 @@ namespace Assembler {
             
             if (opcode == "SET") {
                 first_byte += div(operands.at(0), 16).quot;
+                second_byte += div(operands.at(0), 16).rem*16;
+                second_byte += operands.at(1);
             }
 
             else if (NIBBLE_INSTRUCTIONS.count(opcode) == 1) {
@@ -179,13 +181,12 @@ namespace Assembler {
         // Get opcode string and check opcode is valid
         string opcode_string = instruction.substr(0, 3);
         if (!IsValidOpcode(opcode_string)) {
-            Errors::Asssembler::InvalidOpcode(line, opcode_string);
-            return "";
+            throw Errors::Assembler::InvalidOpcode(line, opcode_string);
         }
 
         // Get operands
-        string operand_string = instruction.substr(3, instruction.size() - 3);
-        vector<int> operands = GetOperands(line, instruction, opcode_string, operand_string);
+        string operand_string = instruction.substr(4, instruction.size() - 4);
+        vector<int> operands = GetOperands(line, opcode_string, operand_string);
 
         pair<int, int> bytes = Combine(opcode_string, operands);
 

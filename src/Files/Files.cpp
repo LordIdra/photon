@@ -12,8 +12,7 @@ using std::ifstream;
 namespace Files {
     auto Read(const string &path) -> vector<string> {
         if (!FileExists(path)) {
-            Errors::Files::NotFound(path);
-            return vector<string>();
+            throw Errors::Files::NotFound(path);
         }
         vector<string> lines;
         ifstream file(path);

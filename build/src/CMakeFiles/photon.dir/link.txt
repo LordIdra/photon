@@ -1,0 +1,1 @@
+/usr/bin/clang++-15  -g   CMakeFiles/photon.dir/Assembler/Assembler.cpp.o CMakeFiles/photon.dir/Files/Files.cpp.o CMakeFiles/photon.dir/Util/Util.cpp.o CMakeFiles/photon.dir/Util/Errors.cpp.o CMakeFiles/photon.dir/main.cpp.o  -o photon  --coverage 

@@ -6,9 +6,13 @@
 
 
 TEST_CASE("[1|RFL] Invalid File") {
-    vector<string> actualLines = Files::Read("this file does not exist");
-    REQUIRE(Errors::HasErrorCode());
-    REQUIRE(Errors::GetErrorCode() == Errors::FILE_NOT_FOUND);
+    try {
+        vector<string> actualLines = Files::Read("this file does not exist");
+    } catch (Errors::Files::NotFound &e) {
+        REQUIRE(true);
+        return;
+    } catch (const std::runtime_error &e) {}
+    REQUIRE(false);
 }
 
 TEST_CASE("[1|RFL] Success 1") {
