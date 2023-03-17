@@ -1,0 +1,61 @@
+[
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../src/.  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o src/CMakeFiles/PHOTON.dir/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Files/Files.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../src/.  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o src/CMakeFiles/PHOTON.dir/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Util/Util.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../src/.  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o src/CMakeFiles/PHOTON.dir/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Util/Errors.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../src/.  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o src/CMakeFiles/PHOTON.dir/main.cpp.o -c /home/idra/GitHub/Photon/src/main.cpp",
+  "file": "/home/idra/GitHub/Photon/src/main.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/TestFiles.cpp.o -c /home/idra/GitHub/Photon/tests/TestFiles.cpp",
+  "file": "/home/idra/GitHub/Photon/tests/TestFiles.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/TestUtil.cpp.o -c /home/idra/GitHub/Photon/tests/TestUtil.cpp",
+  "file": "/home/idra/GitHub/Photon/tests/TestUtil.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/Util.cpp.o -c /home/idra/GitHub/Photon/tests/Util.cpp",
+  "file": "/home/idra/GitHub/Photon/tests/Util.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/__/src/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Files/Files.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/__/src/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Util/Util.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -fprofile-arcs -ftest-coverage --coverage -O0 -g -std=gnu++17 -o tests/CMakeFiles/PHOTON_TESTS.dir/__/src/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Util/Errors.cpp"
+}
+]
