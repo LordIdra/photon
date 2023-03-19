@@ -1,0 +1,241 @@
+Tick Pulse Test_out
+# SET 37 r1
+memory ProgramMemory(0)=242;
+memory ProgramMemory(1)=81;
+# MTD r1
+memory ProgramMemory(2)=49;
+memory ProgramMemory(3)=1;
+# STI 60
+memory ProgramMemory(4)=144;
+memory ProgramMemory(5)=60;
+# STI 3000
+memory ProgramMemory(6)=155;
+memory ProgramMemory(7)=184;
+# SET 0 r1
+memory ProgramMemory(8)=240;
+memory ProgramMemory(9)=1;
+# MTD r1
+memory ProgramMemory(10)=49;
+memory ProgramMemory(11)=1;
+# LDI 60
+memory ProgramMemory(12)=128;
+memory ProgramMemory(13)=60;
+# MFD r1
+memory ProgramMemory(14)=65;
+memory ProgramMemory(15)=1;
+# SET 0 r1
+memory ProgramMemory(16)=240;
+memory ProgramMemory(17)=1;
+# MTD r1
+memory ProgramMemory(18)=49;
+memory ProgramMemory(19)=1;
+# LDI 3000
+memory ProgramMemory(20)=139;
+memory ProgramMemory(21)=184;
+# MFD r1
+memory ProgramMemory(22)=65;
+memory ProgramMemory(23)=1;
+# SET 37 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MTD r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# STI 60
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# STI 3000
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 0 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (0)
+# MTD r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# LDI 60
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MFD r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (37)
+# SET 0 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (0)
+# MTD r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# LDI 3000
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MFD r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (37)

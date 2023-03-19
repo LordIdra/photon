@@ -1,0 +1,17 @@
+SET 50 r2
+SET 100 r3
+
+SET 4 r4
+SET 2 r5
+
+SUB r2 r3
+MOV r1 r2
+!206
+
+SBC r4 r5
+MOV r1 r4
+!1
+
+SBC r5 r4
+MOV r1 r5
+!1

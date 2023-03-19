@@ -1,0 +1,14 @@
+SET 2 r2
+SET 5 r3
+SUB r3 r2
+
+BIN 10
+~SET 50 r1
+SET 30 r1
+!30
+
+SUB r3 r3
+BIN 18
+~SET 50 r1
+SET 30 r1
+!50

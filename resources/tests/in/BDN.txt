@@ -1,0 +1,19 @@
+SET 0 r4
+SET 18 r5
+SET 0 r6
+SET 26 r7
+
+SET 2 r2
+SET 0 r3
+SUB r2 r3
+
+BDN r4 r5
+~SET 50 r1
+SET 30 r1
+!30
+
+SUB r3 r3
+BDN r6 r7
+~SET 50 r1
+SET 30 r1
+!50

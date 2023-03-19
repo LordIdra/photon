@@ -1,0 +1,9 @@
+SET 6 r1
+
+SET 50 r6
+SUB r1 r6
+!-44
+
+SET 72 r1
+SUB r1 r6
+!22

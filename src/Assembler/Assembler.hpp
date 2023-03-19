@@ -13,7 +13,7 @@ namespace Assembler {
     const int MIN_ADDRESS = 0;
     const int MAX_ADDRESS = 4095;
     const int MIN_VALUE = -128;
-    const int MAX_VALUE = 127;
+    const int MAX_VALUE = 255; // Max for unsigned is 255, for signed 127
 
     enum OperandType {
         REGISTER,
@@ -50,7 +50,7 @@ namespace Assembler {
         {"CMP", 81}, 
         {"TST", 97}, 
 
-        {"LDI", 228}, 
+        {"LDI", 128}, 
         {"STI", 144}, 
         {"BIU", 160}, 
         {"BIG", 176},
@@ -67,12 +67,12 @@ namespace Assembler {
         {"SBC", {REGISTER, REGISTER}}, 
         {"INC", {REGISTER}}, 
         {"DEC", {REGISTER}},
-        {"INV", {REGISTER}},
+        {"INV", {REGISTER, REGISTER}},
 
         {"XOR", {REGISTER, REGISTER}}, 
         {"AND", {REGISTER, REGISTER}}, 
         {"ORR", {REGISTER, REGISTER}}, 
-        {"NOT", {REGISTER}},
+        {"NOT", {REGISTER, REGISTER}},
 
         {"LDD", {REGISTER, REGISTER}}, 
         {"STD", {REGISTER, REGISTER}}, 
@@ -102,8 +102,9 @@ namespace Assembler {
 
     const set<string> NIBBLE_INSTRUCTIONS = {"LDI", "STI", "BIU", "BIG", "BIL", "BIE", "BIN", "SET"};
     const set<string> NO_OPERAND_INSTRUCTIONS = {"NOP", "HLT"};
-    const set<string> SINGLE_REGISTER_INSTRUCTIONS = {"INC", "DEC", "INV", "NOT", "MTD", "MFD", "TST"};
-    const set<string> DOUBLE_REGISTER_INSTRUCTIONS = {"ADD", "ADC", "SUB", "SBC", "XOR", "AND", "ORR", "LDD", "STD", "BDU", "BDG", "BDL", "BDE", "BDN", "MOV", "CMP"};
+    const set<string> SINGLE_REGISTER_INSTRUCTIONS = {"INC", "DEC", "MTD", "MFD", "TST"};
+    const set<string> DOUBLE_REGISTER_INSTRUCTIONS = {"ADD", "ADC", "SUB", "SBC", "INV", "XOR", "AND", "ORR", "NOT", "LDD", "STD", "BDU", "BDG", "BDL", "BDE", "BDN", "MOV", "CMP"};
 
-    auto Assemble(const int line, const string &instruction) -> string;
+    auto AssembleToDenary(const string &file_, const int line_, const string &instruction) -> pair<int, int>;
+    auto AssembleToString(const string &file_, const int line_, const string &instruction) -> string;
 }

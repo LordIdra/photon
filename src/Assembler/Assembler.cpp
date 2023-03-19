@@ -13,6 +13,9 @@
 namespace Assembler {
 
     namespace {
+
+        int line;
+        string file;
         
         // https://stackoverflow.com/questions/5888022/split-string-by-single-spaces
         auto Split(const string &input, vector<string> &output, char delimiter) -> void{
@@ -32,7 +35,7 @@ namespace Assembler {
             return OPCODES.find(opcode_string) != OPCODES.end();
         }
 
-        auto ExtractOperand(const int line, string operand) -> pair<OperandType, int> {
+        auto ExtractOperand(string operand) -> pair<OperandType, int> {
             OperandType type = REGISTER;
             int value = 0;
 
@@ -46,21 +49,20 @@ namespace Assembler {
             try {
                 value = std::stoi(operand);
             } catch (std::exception &e) {
-                throw Errors::Assembler::InvalidOperandValue(line, operand);
+                throw Errors::Assembler::InvalidOperandValue(file, line, operand);
             }
 
             return make_pair(type, value);
         }
 
-        auto ExtractOperands(int line, const string &opcode_string, const vector<string> &operand_strings) -> vector<int>{
+        auto ExtractOperands(const string &opcode_string, const vector<string> &operand_strings) -> vector<int>{
             vector<int> operands;
             for (int i = 0; i < operand_strings.size(); i++) {
-                std::cout << "|" << operand_strings.at(i);
-                pair<OperandType, int> operand = ExtractOperand(line, operand_strings.at(i));
+                pair<OperandType, int> operand = ExtractOperand(operand_strings.at(i));
 
                 // Check that actual and expected operand type match
                 if (operand.first != OPERANDS.at(opcode_string).at(i)) {
-                    throw Errors::Assembler::InvalidOperandType(line, operand_strings.at(i));
+                    throw Errors::Assembler::InvalidOperandType(file, line, operand_strings.at(i));
                 }
 
                 operands.push_back(operand.second);
@@ -69,62 +71,62 @@ namespace Assembler {
             return operands;
         }
 
-        auto HandleBoundValue(int line, int &operand) -> void {
+        auto HandleBoundValue(int &operand) -> void {
             if ((operand < MIN_VALUE) || (operand > MAX_VALUE)) {
-                throw Errors::Assembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(file, line, operand);
             }
             if (operand < 0) {
                 operand += 256;
             }
         }
 
-        auto HandleBoundRegister(int line, int &operand) -> void {
+        auto HandleBoundRegister(int &operand) -> void {
             if ((operand < MIN_REGISTER) || (operand > MAX_REGISTER)) {
-                throw Errors::Assembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(file, line, operand);
             }
         }
 
-        auto HandleBoundAddress(int line, int &operand) -> void {
+        auto HandleBoundAddress(int &operand) -> void {
             if ((operand < MIN_ADDRESS) || (operand > MAX_ADDRESS)) {
-                throw Errors::Assembler::OperandOutOfBounds(line, operand);
+                throw Errors::Assembler::OperandOutOfBounds(file, line, operand);
             }
         }
 
-        auto HandleBounds(int line, const string &opcode, vector<int> &operands) -> void {
+        auto HandleBounds(const string &opcode, vector<int> &operands) -> void {
             if (opcode == "SET") {
-                HandleBoundValue(line, operands.at(0));
-                HandleBoundRegister(line, operands.at(1));
+                HandleBoundValue(operands.at(0));
+                HandleBoundRegister(operands.at(1));
             }
 
             else if (NIBBLE_INSTRUCTIONS.count(opcode) == 1) {
-                HandleBoundAddress(line, operands.at(0));
+                HandleBoundAddress(operands.at(0));
             }
 
             else if (SINGLE_REGISTER_INSTRUCTIONS.count(opcode) == 1) {
-                HandleBoundRegister(line, operands.at(0));
+                HandleBoundRegister(operands.at(0));
             }
 
             else if (DOUBLE_REGISTER_INSTRUCTIONS.count(opcode) == 1) {
-                HandleBoundRegister(line, operands.at(0));
-                HandleBoundRegister(line, operands.at(1));
+                HandleBoundRegister(operands.at(0));
+                HandleBoundRegister(operands.at(1));
             }
         }
 
-        auto GetOperands(const int line, const string &opcode_string, const string &operand_string) -> vector<int> {
+        auto GetOperands(const string &opcode_string, const string &operand_string) -> vector<int> {
             vector<string> operand_strings;
             Split(operand_string, operand_strings, ' ');
             
             // Check actual and expected operand count match
             const int expected_operand_count = OPERANDS.at(opcode_string).size();
             if (operand_strings.size() != expected_operand_count) {
-                throw Errors::Assembler::InvalidOperandCount(line, operand_strings.size(), expected_operand_count);
+                throw Errors::Assembler::InvalidOperandCount(file, line, operand_strings.size(), expected_operand_count);
             }
 
             // Convert string operands to int operands
-            vector<int> operands = ExtractOperands(line, opcode_string, operand_strings);
+            vector<int> operands = ExtractOperands(opcode_string, operand_strings);
 
             // Check that any values are properly bounded and convert any negative numbers to equivalent unsigned values
-            HandleBounds(line, opcode_string, operands);
+            HandleBounds(opcode_string, operands);
 
             return operands;
         }
@@ -169,28 +171,45 @@ namespace Assembler {
             }
 
             else if (DOUBLE_REGISTER_INSTRUCTIONS.count(opcode) == 1) {
-                second_byte += operands.at(1);
-                second_byte += 16*operands.at(0);
+                second_byte += operands.at(0);
+                second_byte += 16*operands.at(1);
             }
 
             return make_pair(first_byte, second_byte);
         }
     }
 
-    auto Assemble(const int line, const string &instruction) -> string {
+    auto AssembleToDenary(const string &file_, const int line_, const string &instruction) -> pair<int, int> {
+        file = file_;
+        line = line_;
+
         // Get opcode string and check opcode is valid
         string opcode_string = instruction.substr(0, 3);
         if (!IsValidOpcode(opcode_string)) {
-            throw Errors::Assembler::InvalidOpcode(line, opcode_string);
+            throw Errors::Assembler::InvalidOpcode(file, line, opcode_string);
         }
 
-        // Get operands
-        string operand_string = instruction.substr(4, instruction.size() - 4);
-        vector<int> operands = GetOperands(line, opcode_string, operand_string);
+        // Get operands if there are any
+        vector<int> operands;
+        if (instruction.size() > 3) {
+            string operand_string = instruction.substr(4, instruction.size() - 4);
+            operands = GetOperands(opcode_string, operand_string);
+        } 
+        
+        else {
+            // Check that the instruction should not have any operands
+            if (!OPERANDS.at(opcode_string).empty()) {
+                throw Errors::Assembler::InvalidOperandCount(file, line, 0, OPERANDS.at(opcode_string).size());
+            }
+        }
 
-        pair<int, int> bytes = Combine(opcode_string, operands);
+        return Combine(opcode_string, operands);
+    }
 
+    auto AssembleToString(const string &file_, const int line_, const string &instruction) -> string {
+        file = file_;
+        line = line_;
+        pair<int, int> bytes = AssembleToDenary(file_, line, instruction);
         return to_string(bytes.first) + " " + to_string(bytes.second);
     }
-    
 }

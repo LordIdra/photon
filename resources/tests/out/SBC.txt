@@ -1,0 +1,201 @@
+Tick Pulse Test_out
+# SET 50 r2
+memory ProgramMemory(0)=243;
+memory ProgramMemory(1)=34;
+# SET 100 r3
+memory ProgramMemory(2)=246;
+memory ProgramMemory(3)=67;
+# SET 4 r4
+memory ProgramMemory(4)=240;
+memory ProgramMemory(5)=68;
+# SET 2 r5
+memory ProgramMemory(6)=240;
+memory ProgramMemory(7)=37;
+# SUB r2 r3
+memory ProgramMemory(8)=40;
+memory ProgramMemory(9)=50;
+# MOV r1 r2
+memory ProgramMemory(10)=33;
+memory ProgramMemory(11)=33;
+# SBC r4 r5
+memory ProgramMemory(12)=56;
+memory ProgramMemory(13)=84;
+# MOV r1 r4
+memory ProgramMemory(14)=33;
+memory ProgramMemory(15)=65;
+# SBC r5 r4
+memory ProgramMemory(16)=56;
+memory ProgramMemory(17)=69;
+# MOV r1 r5
+memory ProgramMemory(18)=33;
+memory ProgramMemory(19)=81;
+# SET 50 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 100 r3
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 4 r4
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 2 r5
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SUB r2 r3
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MOV r1 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (206)
+# SBC r4 r5
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MOV r1 r4
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (1)
+# SBC r5 r4
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# MOV r1 r5
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (1)

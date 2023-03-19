@@ -1,9 +1,6 @@
-# Enable code coverage
-ADD_COMPILE_OPTIONS(-fprofile-arcs -ftest-coverage --coverage)
-
 # Enable clang tidy checks
-#FIND_PROGRAM(CCACHE ccache)
-#SET(CMAKE_CXX_CLANG_TIDY clang-tidy -checks=bugprone-*,clang-analyzer-*,concurrency-*,cppcoreguidelines-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-misc-unused-using-decls,-cppcoreguidelines-pro-type-union-access,-readability-implicit-bool-conversion,-readability-magic-numbers,-bugprone-narrowing-conversions,-modernize-pass-by-value,-cppcoreguidelines-avoid-magic-numbers,-performance-inefficient-string-concatenation)
+FIND_PROGRAM(CCACHE ccache)
+SET(CMAKE_CXX_CLANG_TIDY clang-tidy -checks=bugprone-*,clang-analyzer-*,concurrency-*,cppcoreguidelines-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-misc-unused-using-decls,-cppcoreguidelines-pro-type-union-access,-readability-implicit-bool-conversion,-readability-magic-numbers,-bugprone-narrowing-conversions,-modernize-pass-by-value,-cppcoreguidelines-avoid-magic-numbers,-performance-inefficient-string-concatenation)
 
 # Find dependencies
 INCLUDE("~/vcpkg/scripts/buildsystems/vcpkg.cmake")
@@ -15,7 +12,7 @@ ADD_EXECUTABLE(photon_tests ${TEST_FILES} ${SOURCE_FILES})
 TARGET_INCLUDE_DIRECTORIES(photon_tests PRIVATE "../src")
 
 # Link libraries
-TARGET_LINK_LIBRARIES(photon_tests PRIVATE Catch2::Catch2WithMain --coverage)
+TARGET_LINK_LIBRARIES(photon_tests PRIVATE Catch2::Catch2WithMain)
 TARGET_LINK_LIBRARIES(photon_tests PRIVATE photon_library)
 
 # Custom commands

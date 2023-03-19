@@ -1,0 +1,6 @@
+SET 0 r1
+SET 8 r2
+BDU r1 r2
+~SET 50 r1
+SET 30 r1
+!30

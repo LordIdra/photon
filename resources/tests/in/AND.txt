@@ -1,0 +1,4 @@
+SET 45 r1
+SET 38 r2
+AND r1 r2
+!36

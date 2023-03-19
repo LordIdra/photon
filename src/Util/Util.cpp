@@ -56,14 +56,6 @@ auto DenaryToBinary(int x, const int bits) -> string {
     return binary_string;
 }
 
-auto FileExists(const string &path) -> bool {
-    // Open a file as an ifstream
-    ifstream file(path);
-    
-    // Check if the opened file contains any data - if so, the file exists
-    return bool(file);
-}
-
 auto Contains(const vector<int> &container, const int target) -> bool {
     return std::count(container.begin(), container.end(), target) != 0;
 }

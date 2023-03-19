@@ -1,0 +1,18 @@
+SET 37 r1
+MTD r1
+STI 60
+STI 3000
+
+SET 0 r1
+!0
+MTD r1
+LDI 60
+MFD r1
+!37
+
+SET 0 r1
+!0
+MTD r1
+LDI 3000
+MFD r1
+!37

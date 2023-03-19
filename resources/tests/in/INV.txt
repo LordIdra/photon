@@ -1,0 +1,7 @@
+SET -34 r8
+INV r1 r8
+!34
+
+SET 7 r1
+INV r1 r1
+!-7

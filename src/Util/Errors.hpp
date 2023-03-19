@@ -28,27 +28,34 @@ namespace Errors {
     namespace Assembler {
         class InvalidOpcode : public std::runtime_error {
         public:
-            InvalidOpcode(const int line, const string &opcode);
+            InvalidOpcode(const string &file, const int line, const string &opcode);
         };
 
         class InvalidOperandCount : public std::runtime_error {
         public:
-            InvalidOperandCount(const int line, const int expected, const int actual);
+            InvalidOperandCount(const string &file, const int line, const int expected, const int actual);
         };
 
         class InvalidOperandType : public std::runtime_error {
         public:
-            InvalidOperandType(const int line, const string &operand);
+            InvalidOperandType(const string &file, const int line, const string &operand);
         };
 
         class InvalidOperandValue : public std::runtime_error {
         public:
-            InvalidOperandValue(const int line, const string &operand);
+            InvalidOperandValue(const string &file, const int line, const string &operand);
         };
 
         class OperandOutOfBounds : public std::runtime_error {
         public:
-            OperandOutOfBounds(const int line, const int operand);
+            OperandOutOfBounds(const string &file, const int line, const int operand);
+        };
+    }
+
+    namespace TestBuilder {
+        class NothingToExpect : public std::runtime_error {
+        public:
+            NothingToExpect(const string &file, const int line);
         };
     }
 }

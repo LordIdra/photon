@@ -1,0 +1,17 @@
+SET 100 r2
+SET 200 r3
+
+SET 2 r4
+SET 3 r5
+
+ADD r2 r3
+MOV r1 r2
+!44
+
+ADC r4 r5
+MOV r1 r4
+!6
+
+ADC r4 r5
+MOV r1 r4
+!9

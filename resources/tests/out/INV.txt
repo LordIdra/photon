@@ -1,0 +1,81 @@
+Tick Pulse Test_out
+# SET -34 r8
+memory ProgramMemory(0)=253;
+memory ProgramMemory(1)=232;
+# INV r1 r8
+memory ProgramMemory(2)=104;
+memory ProgramMemory(3)=129;
+# SET 7 r1
+memory ProgramMemory(4)=240;
+memory ProgramMemory(5)=113;
+# INV r1 r1
+memory ProgramMemory(6)=104;
+memory ProgramMemory(7)=17;
+# SET -34 r8
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# INV r1 r8
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (34)
+# SET 7 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# INV r1 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (-7)

@@ -1,0 +1,22 @@
+SET 0 r3
+SET 2 r4
+SET 23 r5
+
+SET 37 r1
+MTD r1
+STD r3 r5
+STD r4 r5
+
+SET 0 r1
+!0
+MTD r1
+LDD r3 r5
+MFD r1
+!37
+
+SET 0 r1
+!0
+MTD r1
+LDD r4 r5
+MFD r1
+!37

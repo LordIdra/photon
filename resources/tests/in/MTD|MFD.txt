@@ -1,0 +1,6 @@
+SET 54 r1
+MTD r1
+SET 0 r1
+!0
+MFD r1
+!54

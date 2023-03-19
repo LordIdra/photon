@@ -1,0 +1,61 @@
+Tick Pulse Test_out
+# SET 45 r1
+memory ProgramMemory(0)=242;
+memory ProgramMemory(1)=209;
+# SET 38 r2
+memory ProgramMemory(2)=242;
+memory ProgramMemory(3)=98;
+# XOR r1 r2
+memory ProgramMemory(4)=4;
+memory ProgramMemory(5)=33;
+# SET 45 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 38 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# XOR r1 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (11)

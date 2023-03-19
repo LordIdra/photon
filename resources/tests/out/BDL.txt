@@ -1,0 +1,247 @@
+Tick Pulse Test_out
+# SET 0 r4
+memory ProgramMemory(0)=240;
+memory ProgramMemory(1)=4;
+# SET 18 r5
+memory ProgramMemory(2)=241;
+memory ProgramMemory(3)=37;
+# SET 0 r6
+memory ProgramMemory(4)=240;
+memory ProgramMemory(5)=6;
+# SET 26 r7
+memory ProgramMemory(6)=241;
+memory ProgramMemory(7)=167;
+# SET 2 r2
+memory ProgramMemory(8)=240;
+memory ProgramMemory(9)=34;
+# SET 0 r3
+memory ProgramMemory(10)=240;
+memory ProgramMemory(11)=3;
+# SUB r3 r2
+memory ProgramMemory(12)=40;
+memory ProgramMemory(13)=35;
+# BDL r4 r5
+memory ProgramMemory(14)=66;
+memory ProgramMemory(15)=84;
+# SET 50 r1
+memory ProgramMemory(16)=243;
+memory ProgramMemory(17)=33;
+# SET 30 r1
+memory ProgramMemory(18)=241;
+memory ProgramMemory(19)=225;
+# SUB r2 r3
+memory ProgramMemory(20)=40;
+memory ProgramMemory(21)=50;
+# BDL r6 r7
+memory ProgramMemory(22)=66;
+memory ProgramMemory(23)=118;
+# SET 50 r1
+memory ProgramMemory(24)=243;
+memory ProgramMemory(25)=33;
+# SET 30 r1
+memory ProgramMemory(26)=241;
+memory ProgramMemory(27)=225;
+# SET 0 r4
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 18 r5
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 0 r6
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 26 r7
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 2 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 0 r3
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SUB r3 r2
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# BDL r4 r5
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 30 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (30)
+# SUB r2 r3
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# BDL r6 r7
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 30 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (50)

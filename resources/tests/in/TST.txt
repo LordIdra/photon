@@ -1,0 +1,14 @@
+SET 2 r2
+SET -60 r3
+TST r2
+
+BIG 10
+~SET 50 r1
+SET 30 r1
+!30
+
+TST r3
+BIG 18
+~SET 60 r1
+SET 40 r1
+!60

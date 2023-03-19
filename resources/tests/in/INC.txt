@@ -1,0 +1,9 @@
+SET 3 r6
+INC r6
+MOV r1 r6
+!4
+
+SET -8 r3
+INC r3
+MOV r1 r3
+!-7

@@ -1,0 +1,6 @@
+SET 68 r5
+SET -16 r3
+MOV r1 r5
+!68
+MOV r1 r3
+!-16

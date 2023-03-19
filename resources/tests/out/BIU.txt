@@ -1,0 +1,44 @@
+Tick Pulse Test_out
+# BIU 4
+memory ProgramMemory(0)=160;
+memory ProgramMemory(1)=4;
+# SET 50 r1
+memory ProgramMemory(2)=243;
+memory ProgramMemory(3)=33;
+# SET 30 r1
+memory ProgramMemory(4)=241;
+memory ProgramMemory(5)=225;
+# BIU 4
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 X
+# SET 30 r1
+1 1 X
+1 0 X
+2 1 X
+2 0 X
+3 1 X
+3 0 X
+4 1 X
+4 0 X
+5 1 X
+5 0 X
+6 1 X
+6 0 X
+7 1 X
+7 0 X
+8 1 X
+8 0 (30)
