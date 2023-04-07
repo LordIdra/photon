@@ -144,7 +144,7 @@ namespace Assembler {
             vector<string> operand_binary;
             operand_binary.reserve(operand_ints.size());
             for (const int &operand_int : operand_ints) {
-                operand_binary.push_back(DenaryToBinary(operand_int, WORD_SIZE));
+                operand_binary.push_back(DenaryToBinaryString(operand_int, WORD_SIZE));
             }
             return operand_binary;
         }

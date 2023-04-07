@@ -23,8 +23,8 @@ auto Pow(const int x, const int y) -> int {
     return result;
 }
 
-auto DenaryToBinary(int x, const int bits) -> string {
-    string binary_string;
+auto DenaryToBinary(int x, const int bits) -> vector<bool> {
+    vector<bool> binary;
 
     // If x is greater than the maximum value for the given number of bits, that's an overflow
     // For the algorithm to work with this we'll need x >= 0 and x < max value
@@ -36,6 +36,8 @@ auto DenaryToBinary(int x, const int bits) -> string {
     // We'll start at the MSB, so find the value of said MSB
     int bit_value = max_value / 2;
 
+    binary.reserve(bits);
+
     // Loop through every bit
     for (int bit = 0; bit < bits; bit++) {
 
@@ -43,16 +45,29 @@ auto DenaryToBinary(int x, const int bits) -> string {
         // If the bit should be 1, subtract the bit value - this will allow us to use the same
         // technique on the next iteration
         if ((x - bit_value) >= 0) {
-            binary_string += "1";
+            binary.push_back(1);
             x -= bit_value;
         } else {
-            binary_string += "0";
+            binary.push_back(0);
         }
 
         // Next bit value will be half the previous one
         bit_value /= 2;
     }
 
+    return binary;
+}
+
+auto DenaryToBinaryString(int x, const int bits) -> string {
+    vector<bool> binary = DenaryToBinary(x, bits);
+    string binary_string;
+    for (const bool b : binary) {
+        if (b) {
+            binary_string.push_back('1');
+        } else {
+            binary_string.push_back('0');
+        }
+    }
     return binary_string;
 }
 
