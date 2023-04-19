@@ -81,7 +81,10 @@
 				5,
 				6,
 				7,
-				8
+				8,
+				9,
+				10,
+				11
 			]
 		}
 	],
@@ -131,7 +134,10 @@
 				5,
 				6,
 				7,
-				8
+				8,
+				9,
+				10,
+				11
 			]
 		}
 	],
@@ -170,13 +176,25 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
+			"path" : "src/ComponentTest/ComponentTest.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/ComponentTest/ComponentTests.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
 			"path" : "src/Files/Files.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "src/TestBuilder/TestBuilder.cpp",
+			"path" : "src/SimulationTestBuilder/SimulationTestBuilder.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -189,6 +207,12 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "src/Util/Errors.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Util/Timer.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -70,14 +70,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "photon::@145eef247bfb46b6828c",
-					"jsonFile" : "target-photon-Debug-c14ddf0377fc7bb1fe31.json",
+					"jsonFile" : "target-photon-Debug-672c5227a140878da37a.json",
 					"name" : "photon",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "photon_tests::@a44f0ac069e85531cdee",
-					"jsonFile" : "target-photon_tests-Debug-fd770d598952a55eb9fb.json",
+					"jsonFile" : "target-photon_tests-Debug-b70f84884fb17fd13282.json",
 					"name" : "photon_tests",
 					"projectIndex" : 0
 				}

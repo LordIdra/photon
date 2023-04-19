@@ -4,6 +4,6 @@
 
 
 
-namespace TestBuilder {
+namespace SimulationTestBuilder {
     auto Build(const string &file_, const vector<string> &input) -> vector<string>;
 }

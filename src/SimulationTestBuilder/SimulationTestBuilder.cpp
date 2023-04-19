@@ -1,11 +1,11 @@
-#include "TestBuilder.hpp"
+#include "SimulationTestBuilder.hpp"
 #include "Assembler/Assembler.hpp"
 #include "Util/Errors.hpp"
 #include <string>
 
 
 
-namespace TestBuilder {
+namespace SimulationTestBuilder {
     namespace {
         const string HEADER = "Tick Pulse Test_out";
 

@@ -103,6 +103,20 @@ build src/CMakeFiles/photon.dir/CommandLine/CommandLine.cpp.o: CXX_COMPILER__pho
   OBJECT_DIR = src/CMakeFiles/photon.dir
   OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/CommandLine
 
+build src/CMakeFiles/photon.dir/ComponentTest/ComponentTest.cpp.o: CXX_COMPILER__photon ../src/ComponentTest/ComponentTest.cpp || cmake_object_order_depends_target_photon
+  DEP_FILE = src/CMakeFiles/photon.dir/ComponentTest/ComponentTest.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../src/.
+  OBJECT_DIR = src/CMakeFiles/photon.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/ComponentTest
+
+build src/CMakeFiles/photon.dir/ComponentTest/ComponentTests.cpp.o: CXX_COMPILER__photon ../src/ComponentTest/ComponentTests.cpp || cmake_object_order_depends_target_photon
+  DEP_FILE = src/CMakeFiles/photon.dir/ComponentTest/ComponentTests.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../src/.
+  OBJECT_DIR = src/CMakeFiles/photon.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/ComponentTest
+
 build src/CMakeFiles/photon.dir/Files/Files.cpp.o: CXX_COMPILER__photon ../src/Files/Files.cpp || cmake_object_order_depends_target_photon
   DEP_FILE = src/CMakeFiles/photon.dir/Files/Files.cpp.o.d
   FLAGS = -g   -std=gnu++17
@@ -110,12 +124,12 @@ build src/CMakeFiles/photon.dir/Files/Files.cpp.o: CXX_COMPILER__photon ../src/F
   OBJECT_DIR = src/CMakeFiles/photon.dir
   OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/Files
 
-build src/CMakeFiles/photon.dir/TestBuilder/TestBuilder.cpp.o: CXX_COMPILER__photon ../src/TestBuilder/TestBuilder.cpp || cmake_object_order_depends_target_photon
-  DEP_FILE = src/CMakeFiles/photon.dir/TestBuilder/TestBuilder.cpp.o.d
+build src/CMakeFiles/photon.dir/SimulationTestBuilder/SimulationTestBuilder.cpp.o: CXX_COMPILER__photon ../src/SimulationTestBuilder/SimulationTestBuilder.cpp || cmake_object_order_depends_target_photon
+  DEP_FILE = src/CMakeFiles/photon.dir/SimulationTestBuilder/SimulationTestBuilder.cpp.o.d
   FLAGS = -g   -std=gnu++17
   INCLUDES = -I../src/.
   OBJECT_DIR = src/CMakeFiles/photon.dir
-  OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/TestBuilder
+  OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/SimulationTestBuilder
 
 build src/CMakeFiles/photon.dir/Util/Util.cpp.o: CXX_COMPILER__photon ../src/Util/Util.cpp || cmake_object_order_depends_target_photon
   DEP_FILE = src/CMakeFiles/photon.dir/Util/Util.cpp.o.d
@@ -126,6 +140,13 @@ build src/CMakeFiles/photon.dir/Util/Util.cpp.o: CXX_COMPILER__photon ../src/Uti
 
 build src/CMakeFiles/photon.dir/Util/Errors.cpp.o: CXX_COMPILER__photon ../src/Util/Errors.cpp || cmake_object_order_depends_target_photon
   DEP_FILE = src/CMakeFiles/photon.dir/Util/Errors.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../src/.
+  OBJECT_DIR = src/CMakeFiles/photon.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/photon.dir/Util
+
+build src/CMakeFiles/photon.dir/Util/Timer.cpp.o: CXX_COMPILER__photon ../src/Util/Timer.cpp || cmake_object_order_depends_target_photon
+  DEP_FILE = src/CMakeFiles/photon.dir/Util/Timer.cpp.o.d
   FLAGS = -g   -std=gnu++17
   INCLUDES = -I../src/.
   OBJECT_DIR = src/CMakeFiles/photon.dir
@@ -146,7 +167,7 @@ build src/CMakeFiles/photon.dir/main.cpp.o: CXX_COMPILER__photon ../src/main.cpp
 #############################################
 # Link the executable src/photon
 
-build src/photon: CXX_EXECUTABLE_LINKER__photon src/CMakeFiles/photon.dir/Assembler/Assembler.cpp.o src/CMakeFiles/photon.dir/CommandLine/CommandLine.cpp.o src/CMakeFiles/photon.dir/Files/Files.cpp.o src/CMakeFiles/photon.dir/TestBuilder/TestBuilder.cpp.o src/CMakeFiles/photon.dir/Util/Util.cpp.o src/CMakeFiles/photon.dir/Util/Errors.cpp.o src/CMakeFiles/photon.dir/main.cpp.o
+build src/photon: CXX_EXECUTABLE_LINKER__photon src/CMakeFiles/photon.dir/Assembler/Assembler.cpp.o src/CMakeFiles/photon.dir/CommandLine/CommandLine.cpp.o src/CMakeFiles/photon.dir/ComponentTest/ComponentTest.cpp.o src/CMakeFiles/photon.dir/ComponentTest/ComponentTests.cpp.o src/CMakeFiles/photon.dir/Files/Files.cpp.o src/CMakeFiles/photon.dir/SimulationTestBuilder/SimulationTestBuilder.cpp.o src/CMakeFiles/photon.dir/Util/Util.cpp.o src/CMakeFiles/photon.dir/Util/Errors.cpp.o src/CMakeFiles/photon.dir/Util/Timer.cpp.o src/CMakeFiles/photon.dir/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = src/CMakeFiles/photon.dir
   POST_BUILD = cd /home/idra/GitHub/Photon/build/src && /usr/bin/cmake -E cmake_echo_color --cyan ---\ MAIN\ \ BUILT\ ---
@@ -226,6 +247,20 @@ build tests/CMakeFiles/photon_tests.dir/__/src/CommandLine/CommandLine.cpp.o: CX
   OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
   OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/CommandLine
 
+build tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTest.cpp.o: CXX_COMPILER__photon_tests ../src/ComponentTest/ComponentTest.cpp || cmake_object_order_depends_target_photon_tests
+  DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTest.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../tests/../src
+  OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
+  OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest
+
+build tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTests.cpp.o: CXX_COMPILER__photon_tests ../src/ComponentTest/ComponentTests.cpp || cmake_object_order_depends_target_photon_tests
+  DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTests.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../tests/../src
+  OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
+  OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest
+
 build tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o: CXX_COMPILER__photon_tests ../src/Files/Files.cpp || cmake_object_order_depends_target_photon_tests
   DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o.d
   FLAGS = -g   -std=gnu++17
@@ -233,12 +268,12 @@ build tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o: CXX_COMPILER__
   OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
   OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/Files
 
-build tests/CMakeFiles/photon_tests.dir/__/src/TestBuilder/TestBuilder.cpp.o: CXX_COMPILER__photon_tests ../src/TestBuilder/TestBuilder.cpp || cmake_object_order_depends_target_photon_tests
-  DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/TestBuilder/TestBuilder.cpp.o.d
+build tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder/SimulationTestBuilder.cpp.o: CXX_COMPILER__photon_tests ../src/SimulationTestBuilder/SimulationTestBuilder.cpp || cmake_object_order_depends_target_photon_tests
+  DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder/SimulationTestBuilder.cpp.o.d
   FLAGS = -g   -std=gnu++17
   INCLUDES = -I../tests/../src
   OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
-  OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/TestBuilder
+  OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder
 
 build tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o: CXX_COMPILER__photon_tests ../src/Util/Util.cpp || cmake_object_order_depends_target_photon_tests
   DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o.d
@@ -254,6 +289,13 @@ build tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o: CXX_COMPILER__
   OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
   OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/Util
 
+build tests/CMakeFiles/photon_tests.dir/__/src/Util/Timer.cpp.o: CXX_COMPILER__photon_tests ../src/Util/Timer.cpp || cmake_object_order_depends_target_photon_tests
+  DEP_FILE = tests/CMakeFiles/photon_tests.dir/__/src/Util/Timer.cpp.o.d
+  FLAGS = -g   -std=gnu++17
+  INCLUDES = -I../tests/../src
+  OBJECT_DIR = tests/CMakeFiles/photon_tests.dir
+  OBJECT_FILE_DIR = tests/CMakeFiles/photon_tests.dir/__/src/Util
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target photon_tests
@@ -262,7 +304,7 @@ build tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o: CXX_COMPILER__
 #############################################
 # Link the executable tests/photon_tests
 
-build tests/photon_tests: CXX_EXECUTABLE_LINKER__photon_tests tests/CMakeFiles/photon_tests.dir/TestAssembler.cpp.o tests/CMakeFiles/photon_tests.dir/TestFiles.cpp.o tests/CMakeFiles/photon_tests.dir/TestTestBuilder.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Assembler/Assembler.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/CommandLine/CommandLine.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/TestBuilder/TestBuilder.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o | /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a
+build tests/photon_tests: CXX_EXECUTABLE_LINKER__photon_tests tests/CMakeFiles/photon_tests.dir/TestAssembler.cpp.o tests/CMakeFiles/photon_tests.dir/TestFiles.cpp.o tests/CMakeFiles/photon_tests.dir/TestTestBuilder.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Assembler/Assembler.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/CommandLine/CommandLine.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTest.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTests.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder/SimulationTestBuilder.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o tests/CMakeFiles/photon_tests.dir/__/src/Util/Timer.cpp.o | /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a
   FLAGS = -g
   LINK_LIBRARIES = /usr/local/lib/libCatch2Main.a  /usr/local/lib/libCatch2.a
   OBJECT_DIR = tests/CMakeFiles/photon_tests.dir

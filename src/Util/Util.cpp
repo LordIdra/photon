@@ -23,7 +23,32 @@ auto Pow(const int x, const int y) -> int {
     return result;
 }
 
-auto DenaryToBinary(int x, const int bits) -> vector<bool> {
+auto UnsignedBinaryToDenary(const vector<bool> &bits) -> int {
+    int result = 0;
+    int x = Pow(2, bits.size());
+
+    // Loop through every bit
+    for (const bool &bit : bits) {
+        if (bit) {
+            result += x;
+        }
+
+        // Move on to the next power of two (128 -> 64, or 32 -> 16, etc)
+        x /= 2;
+    }
+
+    return result;
+}
+
+auto SignedBinaryToDenary(const vector<bool> &bits) -> int {
+    int result = UnsignedBinaryToDenary(bits);
+    if (result > Pow(2, int(bits.size()-1))) {
+        result -= Pow(2, bits.size());
+    }
+    return result;
+}
+
+auto UnsignedDenaryToBinary(int x, const int bits) -> vector<bool> {
     vector<bool> binary;
 
     // If x is greater than the maximum value for the given number of bits, that's an overflow
@@ -45,10 +70,10 @@ auto DenaryToBinary(int x, const int bits) -> vector<bool> {
         // If the bit should be 1, subtract the bit value - this will allow us to use the same
         // technique on the next iteration
         if ((x - bit_value) >= 0) {
-            binary.push_back(1);
+            binary.push_back(1); // NOLINT(modernize-use-bool-literals)
             x -= bit_value;
         } else {
-            binary.push_back(0);
+            binary.push_back(0); // NOLINT(modernize-use-bool-literals)
         }
 
         // Next bit value will be half the previous one
@@ -58,8 +83,17 @@ auto DenaryToBinary(int x, const int bits) -> vector<bool> {
     return binary;
 }
 
-auto DenaryToBinaryString(int x, const int bits) -> string {
-    vector<bool> binary = DenaryToBinary(x, bits);
+
+auto SignedDenaryToBinary(int x, const int bits) -> vector<bool> {
+    if (x < 0) {
+        x += Pow(2, bits);
+    }
+
+    return UnsignedDenaryToBinary(x, bits);
+}
+
+auto UnsignedDenaryToBinaryString(int x, const int bits) -> string {
+    vector<bool> binary = UnsignedDenaryToBinary(x, bits);
     string binary_string;
     for (const bool b : binary) {
         if (b) {

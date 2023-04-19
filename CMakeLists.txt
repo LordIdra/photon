@@ -11,10 +11,13 @@ SET(MAIN_FILE
 SET(SOURCE_FILES
     "Assembler/Assembler.cpp"
     "CommandLine/CommandLine.cpp"
+    "ComponentTest/ComponentTest.cpp"
+    "ComponentTest/ComponentTests.cpp"
     "Files/Files.cpp"
-    "TestBuilder/TestBuilder.cpp"
+    "SimulationTestBuilder/SimulationTestBuilder.cpp"
     "Util/Util.cpp" 
     "Util/Errors.cpp" 
+    "Util/Timer.cpp" 
 )
 
 # Test files

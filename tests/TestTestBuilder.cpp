@@ -2,7 +2,7 @@
 #include <cassert>
 #include <catch2/catch_test_macros.hpp>
 
-#include <TestBuilder/TestBuilder.hpp>
+#include <SimulationTestBuilder/SimulationTestBuilder.hpp>
 #include <Util/Util.hpp>
 #include <stdexcept>
 
@@ -14,7 +14,7 @@ TEST_CASE("[TBD] Nothing to expect") {
         "SET 2 r1",
     };
 
-    REQUIRE_THROWS_AS(TestBuilder::Build("TEST", input), Errors::TestBuilder::NothingToExpect);
+    REQUIRE_THROWS_AS(SimulationTestBuilder::Build("TEST", input), Errors::TestBuilder::NothingToExpect);
 }
 
 TEST_CASE("[TBD] Valid 1") {
@@ -73,7 +73,7 @@ TEST_CASE("[TBD] Valid 1") {
         "8 0 (87)",
     };
 
-    vector<string> actual_output = TestBuilder::Build("TEST", input);
+    vector<string> actual_output = SimulationTestBuilder::Build("TEST", input);
 
     REQUIRE(actual_output.size() == expected_output.size());
 
@@ -134,7 +134,7 @@ TEST_CASE("[TBD] Valid 2") {
         "8 0 (2)",
     };
 
-    vector<string> actual_output = TestBuilder::Build("TEST", input);
+    vector<string> actual_output = SimulationTestBuilder::Build("TEST", input);
 
     REQUIRE(actual_output.size() == expected_output.size());
 
