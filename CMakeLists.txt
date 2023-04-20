@@ -30,6 +30,7 @@ SET(TEST_FILES
 
 #set(CMAKE_TOOLCHAIN_FILE "~/vcpkg/scripts/buildsystems/vcpkg.cmake")
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake-3.16/Modules")
 
 find_package(WiringPi REQUIRED)
 find_package(Threads REQUIRED) 
