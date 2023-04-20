@@ -145,14 +145,18 @@ auto ComponentTest::RunTestCase(ComponentTestCase &test_case) -> void {
     }
 }
 
-auto ComponentTest::RunTestGroup(vector<ComponentTestCase> &test_group) -> void {
+auto ComponentTest::RunTestGroup(const string &name, vector<ComponentTestCase> &test_group) -> void {
+    cout << WHITE << "[ Running group " << YELLOW << name << WHITE << " ]" << "\n";
+    int i = 1;
     for (ComponentTestCase &test_case : test_group) {
         RunTestCase(test_case);
+        cout << WHITE << i << CYAN << "/" << WHITE << test_group.size() << "\n";
+        i++;
     }
 }
 
 auto ComponentTest::RunTestGroups() -> void {
     for (auto &test_group_pair : test_groups) {
-        RunTestGroup(test_group_pair.second);
+        RunTestGroup(test_group_pair.first, test_group_pair.second);
     }
 }

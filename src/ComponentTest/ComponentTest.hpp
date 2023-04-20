@@ -44,7 +44,7 @@ private:
     auto PrintTestResults() -> void;
 
     auto RunTestCase(ComponentTestCase &test) -> void;
-    auto RunTestGroup(vector<ComponentTestCase> &test_group) -> void;
+    auto RunTestGroup(const string &name, vector<ComponentTestCase> &test_group) -> void;
     auto RunTestGroups() -> void;
 
 
