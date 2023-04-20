@@ -47,7 +47,7 @@ namespace CommandLine {
             else if (name == "ALU-OutResult") { ComponentTests::TestALU_OutResult(); } 
             else if (name == "ALU-OutCarry")  { ComponentTests::TestALU_OutCarry(); } 
             else if (name == "ALU-OutOr")     { ComponentTests::TestALU_OutOr(); } 
-            else { std::cout << "Invalid component; available components are [MemAdder, SCU, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
+            else { std::cout << "Invalid component; available components are [MemAdderAndRPC, SCU, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
         }
     }
 
