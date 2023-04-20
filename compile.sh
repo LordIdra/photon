@@ -1,0 +1,1 @@
+g++ src/Assembler/Assembler.cpp src/CommandLine/CommandLine.cpp src/ComponentTest/ComponentTest.cpp src/ComponentTest/ComponentTestCase.cpp src/ComponentTest/ComponentTests.cpp src/Electronics/GPIO.cpp src/Files/Files.cpp SimulationTestBuilder/SimulationTestBuilder.cpp Util/Errors.cpp Util/Timer.cpp main.cpp  -lwiringPi -o photon
