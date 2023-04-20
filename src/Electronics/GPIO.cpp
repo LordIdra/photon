@@ -34,7 +34,7 @@ namespace GPIO {
         if (block.mode != OUTPUT) {
             throw Errors::Electronics::InvalidPinMode();
         }
-        vector<bool> bits = DenaryToBinary(value, block.pin_count);
+        vector<bool> bits = SignedDenaryToBinary(value, block.pin_count);
         for (int pin = 0; pin < block.pin_count; pin++) {
             digitalWrite(pin_identifiers.at(block.starting_index + pin), bits[pin]);
         }
@@ -53,6 +53,6 @@ namespace GPIO {
     }
 
     auto ReadInt(const PinBlock &block) -> int {
-        return BinaryToDenary(ReadBinary(block));
+        return SignedBinaryToDenary(ReadBinary(block));
     }
 }

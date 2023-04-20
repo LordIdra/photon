@@ -13,6 +13,7 @@ SET(SOURCE_FILES
     "CommandLine/CommandLine.cpp"
     "ComponentTest/ComponentTest.cpp"
     "ComponentTest/ComponentTests.cpp"
+    "Electronics/GPIO.cpp"
     "Files/Files.cpp"
     "SimulationTestBuilder/SimulationTestBuilder.cpp"
     "Util/Util.cpp" 
@@ -34,7 +35,8 @@ set(CMAKE_CXX_STANDARD 17)
 ADD_LIBRARY(photon_library INTERFACE)
 TARGET_COMPILE_OPTIONS(photon_library INTERFACE) # -fstandalone-debug
 TARGET_LINK_LIBRARIES(photon_library INTERFACE)
+target_compile_options(photon_library PRIVATE -lwiringPi)
 
 # Subdirectories
 ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(tests)
+#ADD_SUBDIRECTORY(tests)

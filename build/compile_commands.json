@@ -1,133 +1,145 @@
 [
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Assembler/Assembler.cpp.o -c /home/idra/GitHub/Photon/src/Assembler/Assembler.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Assembler/Assembler.cpp.o -c /home/idra/GitHub/Photon/src/Assembler/Assembler.cpp",
   "file": "/home/idra/GitHub/Photon/src/Assembler/Assembler.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/CommandLine/CommandLine.cpp.o -c /home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/CommandLine/CommandLine.cpp.o -c /home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp",
   "file": "/home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/ComponentTest/ComponentTest.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/ComponentTest/ComponentTest.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp",
   "file": "/home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/ComponentTest/ComponentTests.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/ComponentTest/ComponentTests.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp",
   "file": "/home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Electronics/GPIO.cpp.o -c /home/idra/GitHub/Photon/src/Electronics/GPIO.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Electronics/GPIO.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
   "file": "/home/idra/GitHub/Photon/src/Files/Files.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/SimulationTestBuilder/SimulationTestBuilder.cpp.o -c /home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/SimulationTestBuilder/SimulationTestBuilder.cpp.o -c /home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp",
   "file": "/home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Util.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Errors.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Timer.cpp.o -c /home/idra/GitHub/Photon/src/Util/Timer.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/Util/Timer.cpp.o -c /home/idra/GitHub/Photon/src/Util/Timer.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Timer.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../src/.  -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/main.cpp.o -c /home/idra/GitHub/Photon/src/main.cpp",
+  "command": "/usr/bin/clang++-15   -I../src/.    -lwiringpi -g   -std=gnu++17 -o src/CMakeFiles/photon.dir/main.cpp.o -c /home/idra/GitHub/Photon/src/main.cpp",
   "file": "/home/idra/GitHub/Photon/src/main.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestAssembler.cpp.o -c /home/idra/GitHub/Photon/tests/TestAssembler.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestAssembler.cpp.o -c /home/idra/GitHub/Photon/tests/TestAssembler.cpp",
   "file": "/home/idra/GitHub/Photon/tests/TestAssembler.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestFiles.cpp.o -c /home/idra/GitHub/Photon/tests/TestFiles.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestFiles.cpp.o -c /home/idra/GitHub/Photon/tests/TestFiles.cpp",
   "file": "/home/idra/GitHub/Photon/tests/TestFiles.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestTestBuilder.cpp.o -c /home/idra/GitHub/Photon/tests/TestTestBuilder.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/TestTestBuilder.cpp.o -c /home/idra/GitHub/Photon/tests/TestTestBuilder.cpp",
   "file": "/home/idra/GitHub/Photon/tests/TestTestBuilder.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Assembler/Assembler.cpp.o -c /home/idra/GitHub/Photon/src/Assembler/Assembler.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Assembler/Assembler.cpp.o -c /home/idra/GitHub/Photon/src/Assembler/Assembler.cpp",
   "file": "/home/idra/GitHub/Photon/src/Assembler/Assembler.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/CommandLine/CommandLine.cpp.o -c /home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/CommandLine/CommandLine.cpp.o -c /home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp",
   "file": "/home/idra/GitHub/Photon/src/CommandLine/CommandLine.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTest.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTest.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp",
   "file": "/home/idra/GitHub/Photon/src/ComponentTest/ComponentTest.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTests.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/ComponentTest/ComponentTests.cpp.o -c /home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp",
   "file": "/home/idra/GitHub/Photon/src/ComponentTest/ComponentTests.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Electronics/GPIO.cpp.o -c /home/idra/GitHub/Photon/src/Electronics/GPIO.cpp",
+  "file": "/home/idra/GitHub/Photon/src/Electronics/GPIO.cpp"
+},
+
+{
+  "directory": "/home/idra/GitHub/Photon/build",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Files/Files.cpp.o -c /home/idra/GitHub/Photon/src/Files/Files.cpp",
   "file": "/home/idra/GitHub/Photon/src/Files/Files.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder/SimulationTestBuilder.cpp.o -c /home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/SimulationTestBuilder/SimulationTestBuilder.cpp.o -c /home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp",
   "file": "/home/idra/GitHub/Photon/src/SimulationTestBuilder/SimulationTestBuilder.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Util.cpp.o -c /home/idra/GitHub/Photon/src/Util/Util.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Util.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Errors.cpp.o -c /home/idra/GitHub/Photon/src/Util/Errors.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Errors.cpp"
 },
 
 {
   "directory": "/home/idra/GitHub/Photon/build",
-  "command": "/usr/bin/clang++-15   -I../tests/../src  -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Timer.cpp.o -c /home/idra/GitHub/Photon/src/Util/Timer.cpp",
+  "command": "/usr/bin/clang++-15   -I../tests/../src    -lwiringpi -g   -std=gnu++17 -o tests/CMakeFiles/photon_tests.dir/__/src/Util/Timer.cpp.o -c /home/idra/GitHub/Photon/src/Util/Timer.cpp",
   "file": "/home/idra/GitHub/Photon/src/Util/Timer.cpp"
 }
 ]
