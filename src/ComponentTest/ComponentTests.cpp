@@ -270,7 +270,7 @@ namespace ComponentTests {
         }
     }
 
-    auto TestMemAdder() -> void {
+    auto TestMemAdderAndRPC() -> void {
         Generate::MemAdderAndRPC().Run();
     }
 
