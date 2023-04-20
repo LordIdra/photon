@@ -25,7 +25,7 @@ auto Pow(const int x, const int y) -> int {
 
 auto UnsignedBinaryToDenary(const vector<bool> &bits) -> int {
     int result = 0;
-    int x = Pow(2, bits.size());
+    int x = Pow(2, bits.size()-1);
 
     // Loop through every bit
     for (const bool &bit : bits) {

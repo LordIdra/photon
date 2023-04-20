@@ -53,10 +53,6 @@ namespace GPIO {
     }
 
     auto ReadInt(const PinBlock &block) -> int {
-        for (bool bit : ReadBinary(block)) {
-            std::cout << bit;
-        }
-        std::cout << "\n";
         return SignedBinaryToDenary(ReadBinary(block));
     }
 }
