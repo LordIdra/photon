@@ -45,7 +45,7 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
         for (const auto &expected_output_pair : test_case.expected_output) {
             const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
             const int expected = expected_output_pair.second;
-            const int actual = 0; //GPIO::ReadInt(pin_block);
+            const int actual = GPIO::ReadInt(pin_block);
             if (actual == expected) {
                 std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | " << GREEN << actual << "\n";
             } else {
@@ -144,7 +144,7 @@ auto ComponentTest::RunTestCase(ComponentTestCase &test_case) -> void {
     for (const auto &expected_output_pair : test_case.expected_output) {
         const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
         const int expected = expected_output_pair.second;
-        const int actual = 0; //GPIO::ReadInt(pin_block);
+        const int actual = GPIO::ReadInt(pin_block);
         test_case.passed = expected == actual;
     }
 }
