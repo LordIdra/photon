@@ -18,6 +18,9 @@ namespace ComponentTests {
             vector<ComponentTestCase> group_main;
             group_main.reserve(4095);
             for (int x = 1; x < 4096; x++) {
+                group_main.push_back(ComponentTestCase{ 
+                    {{"Clk_write", 0}}, 
+                });
                  group_main.push_back(ComponentTestCase{ 
                     {{"Clk_write", 1}}, 
                     {{"Data_out", x}} });
