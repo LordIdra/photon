@@ -16,7 +16,7 @@ auto ComponentTest::Init() -> void {
     for (const auto &block_pair : pin_blocks) {
         blocks.push_back(block_pair.second);
     }
-    //GPIO::Setup(blocks);
+    GPIO::Setup(blocks);
 }
 
 auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> void { //NOLINT(readability-convert-member-functions-to-static)

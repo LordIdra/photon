@@ -17,7 +17,7 @@ namespace GPIO {
 
     auto SetupPinBlock(const PinBlock &block) -> void {
         for (int pin = 0; pin < block.pin_count; pin++) {
-            pinMode(block.starting_index + pin, block.mode);
+            pinMode(pin_identifiers.at(block.starting_index + pin), block.mode);
         }
     }
 
@@ -47,7 +47,7 @@ namespace GPIO {
         vector<bool> bits;
         bits.reserve(block.pin_count);
         for (int pin = 0; pin < block.pin_count; pin++) {
-            bits.push_back(digitalRead(block.starting_index + pin));
+            bits.push_back(digitalRead(pin_identifiers.at(block.starting_index + pin)));
         }
         return bits;
     }
