@@ -8,19 +8,19 @@
 
 namespace ComponentTests {
     namespace Generate {
-        auto MemAdder() -> ComponentTest {
+        auto MemAdderAndRPC() -> ComponentTest {
             unordered_map<string, GPIO::PinBlock> pin_blocks;
             unordered_map<string, vector<ComponentTestCase>> test_groups;
 
-            pin_blocks.insert(make_pair("Data_in", GPIO::PinBlock{0, 12, OUTPUT}));
-            pin_blocks.insert(make_pair("Data_out", GPIO::PinBlock{12, 12, INPUT}));
+            pin_blocks.insert(make_pair("Clk_write", GPIO::PinBlock{0, 1, OUTPUT}));
+            pin_blocks.insert(make_pair("Data_out", GPIO::PinBlock{1, 12, INPUT}));
 
             vector<ComponentTestCase> group_main;
             group_main.reserve(4095);
-            for (int x = 0; x < 4095; x++) {
+            for (int x = 1; x < 4096; x++) {
                  group_main.push_back(ComponentTestCase{ 
-                    {{"Data_in", x}}, 
-                    {{"Data_out", x+1}} });
+                    {{"Clk_write", 1}}, 
+                    {{"Data_out", x}} });
             }
             test_groups.insert(make_pair("main", group_main));
 
@@ -271,7 +271,7 @@ namespace ComponentTests {
     }
 
     auto TestMemAdder() -> void {
-        Generate::MemAdder().Run();
+        Generate::MemAdderAndRPC().Run();
     }
 
     auto TestSCU() -> void {

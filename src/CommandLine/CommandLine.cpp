@@ -40,7 +40,7 @@ namespace CommandLine {
 
             const string name = arguments.at(1);
 
-            if      (name == "MemAdder")      { ComponentTests::TestMemAdder(); } 
+            if      (name == "MemAdderAndRPC"){ ComponentTests::TestMemAdderAndRPC(); } 
             else if (name == "SCU")           { ComponentTests::TestSCU(); } 
             else if (name == "RegisterFile")  { ComponentTests::TestRegisterFile(); } 
             else if (name == "ALU-OutFlags")  { ComponentTests::TestALU_OutFlags(); } 

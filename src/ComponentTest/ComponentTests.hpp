@@ -7,7 +7,7 @@
 
 
 namespace ComponentTests {
-    auto TestMemAdder() -> void;
+    auto TestMemAdderAndRPC() -> void;
     auto TestSCU() -> void;
     auto TestRegisterFile() -> void;
     auto TestALU_OutFlags() -> void;
