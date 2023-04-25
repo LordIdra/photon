@@ -87,18 +87,18 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
         else if (command == "s") {
             cout << WHITE << "Number of tests to skip" << CYAN << "\n";
             string test_string;
-            getline(std::cin, test_string, '\n');
-            try {
-                const int test_count = std::stoi(test_string);
-                if ((test_count < 0) || (test_count > tests.size())) {
-                    cout << RED << "Index out of bounds" << WHITE << "\n";
-                    continue;
-                }
-                std::cout << test_count;
-                //for (int i = 0; i < tests.size(); i++) {
-            } catch (const std::invalid_argument &e) {
-                cout << RED << "Invalid input" << "WHITE" << "\n";
-            }
+            //getline(std::cin, test_string, '\n');
+            //try {
+            //    const int test_count = std::stoi(test_string);
+            //    if ((test_count < 0) || (test_count > tests.size())) {
+            //        cout << RED << "Index out of bounds" << WHITE << "\n";
+            //        continue;
+            //    }
+            //    std::cout << test_count;
+            //    //for (int i = 0; i < tests.size(); i++) {
+            //} catch (const std::invalid_argument &e) {
+            //    cout << RED << "Invalid input" << "WHITE" << "\n";
+            //}
             std::cout << WHITE;
         }
 
