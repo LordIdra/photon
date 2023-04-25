@@ -87,6 +87,7 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
         else if (command == "s") {
             cout << WHITE << "Number of tests to skip" << CYAN << "\n";
             string test_string;
+            std::cin.clear();
             getline(std::cin, test_string, '\n');
             try {
                 const int test_count = std::stoi(test_string);
@@ -97,7 +98,7 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
                 std::cout << test_count;
                 //for (int i = 0; i < tests.size(); i++) {
             } catch (const std::invalid_argument &e) {
-                cout << RED << "Invalid input" << "WHITE" << "\n";
+                cout << RED << "Invalid input" << WHITE << "\n";
             }
             std::cout << WHITE;
         }
