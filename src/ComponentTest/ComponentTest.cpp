@@ -90,17 +90,19 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin >> test_string;
-            try {
-                const int test_count = std::stoi(test_string);
-                if ((test_count < 0) || (test_count > tests.size())) {
-                    cout << RED << "Index out of bounds" << WHITE << "\n";
-                    continue;
-                }
-                std::cout << test_count;
-                //for (int i = 0; i < tests.size(); i++) {
-            } catch (const std::invalid_argument &e) {
-                cout << RED << "Invalid input" << WHITE << "\n";
+
+            const int test_count = std::stoi(test_string);
+            if ((test_count < 0) || (test_count > tests.size())) {
+                cout << RED << "Index out of bounds" << WHITE << "\n";
+                continue;
             }
+
+            std::cout << test_count;
+
+            for (int i = 0; i < tests.size(); i++) {
+
+            }
+            
             std::cout << WHITE;
         }
 
