@@ -99,18 +99,13 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
 
             std::cout << test_count;
 
-            for (int i = 0; i < tests.size(); i++) {
+            for (i++;;) {
                 ComponentTestCase new_test_case = tests.at(i);
 
                 for (const auto &input_pair : new_test_case.input) {
                     const GPIO::PinBlock &pin_block = pin_blocks.at(input_pair.first);
                     GPIO::Set(pin_block, input_pair.second);
-                }
-
-                for (const auto &expected_output_pair : new_test_case.expected_output) {
-                    const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
-                    const int expected = expected_output_pair.second;
-                    const int actual = GPIO::ReadInt(pin_block);
+                    std::this_thread::sleep_for(std::chrono::microseconds(PROPAGATION_DELAY_MICROSECONDS));
                 }
             }
 
