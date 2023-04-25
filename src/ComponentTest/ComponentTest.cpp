@@ -88,7 +88,8 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
             cout << WHITE << "Number of tests to skip" << CYAN << "\n";
             string test_string;
             std::cin.clear();
-            getline(std::cin, test_string, '\n');
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> test_string;
             try {
                 const int test_count = std::stoi(test_string);
                 if ((test_count < 0) || (test_count > tests.size())) {
