@@ -99,7 +99,7 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
 
             std::cout << test_count;
 
-            for (i++;;) {
+            for (int j = 0; j < test_count; j++) {
                 ComponentTestCase new_test_case = tests.at(i);
 
                 for (const auto &input_pair : new_test_case.input) {
@@ -107,6 +107,8 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
                     GPIO::Set(pin_block, input_pair.second);
                     std::this_thread::sleep_for(std::chrono::microseconds(PROPAGATION_DELAY_MICROSECONDS));
                 }
+
+                i++;
             }
 
             std::cout << WHITE;
