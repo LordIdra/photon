@@ -59,6 +59,7 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
         while ((command != "p") && (command != "n") && (command != "c") && (command != "e")) {
             std::cout << YELLOW << "[ " << WHITE << "p" << NO_COLOR << " = previous"
                       << YELLOW << " | " << WHITE << "n" << NO_COLOR << " = next"
+                      << YELLOW << " | " << WHITE << "s" << NO_COLOR << " = skip"
                       << YELLOW << " | " << WHITE << "c" << NO_COLOR << " = continue"
                       << YELLOW << " | " << WHITE << "e" << NO_COLOR << " = exit"
                       << YELLOW << " ]" << NO_COLOR << "\n";
@@ -81,6 +82,24 @@ auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> v
                 continue;
             }
             require_test_failed = false;
+        }
+
+        else if (command == "s") {
+            cout << WHITE << "Number of tests to skip" << CYAN << "\n";
+            string test_string;
+            getline(std::cin, test_string, '\n');
+            try {
+                const int test_count = std::stoi(test_string);
+                if ((test_count < 0) || (test_count > tests.size())) {
+                    cout << RED << "Index out of bounds" << WHITE << "\n";
+                    continue;
+                }
+                std::cout << test_count;
+                //for (int i = 0; i < tests.size(); i++) {
+            } catch (const std::invalid_argument &e) {
+                cout << RED << "Invalid input" << "WHITE" << "\n";
+            }
+            std::cout << WHITE;
         }
 
         else if (command == "c") {
