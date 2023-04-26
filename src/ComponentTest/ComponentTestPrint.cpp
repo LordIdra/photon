@@ -36,7 +36,7 @@ namespace ComponentTestPrint {
         }
 
         auto PrintOutputs(const unordered_map<string, GPIO::PinBlock> &pin_blocks, const ComponentTestCase &test_case) -> void {
-            std::cout << WHITE << "Outputs" << "\n";
+            std::cout << WHITE << "Outputs(e|c|a)" << "\n";
             if (test_case.expected_output.empty()) {
                 std::cout << NO_COLOR << "- N/A" << "\n";
             }
@@ -49,9 +49,9 @@ namespace ComponentTestPrint {
                 std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | ";
 
                 if (current == expected) {
-                    std::cout << GREEN << current << WHITE << " | " << "\n";
+                    std::cout << GREEN << current << WHITE << " | ";
                 } else {
-                    std::cout << RED << current << WHITE << " | " << "\n";
+                    std::cout << RED << current << WHITE << " | ";
                 }
 
                 if (actual == expected) {
