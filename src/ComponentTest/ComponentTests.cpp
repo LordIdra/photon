@@ -31,7 +31,9 @@ namespace ComponentTests {
 
             // Wrap the output back round to 1 in case the test has to be run multiple times (two clock pulses since we started at x=2)
             group_main.push_back(ComponentTestCase{{{"Clk_write", TestNumber{0, false}}}});
+            group_main.push_back(ComponentTestCase{{{"Clk_write", TestNumber{1, false}}}});
             group_main.push_back(ComponentTestCase{{{"Clk_write", TestNumber{0, false}}}});
+            group_main.push_back(ComponentTestCase{{{"Clk_write", TestNumber{1, false}}}});
 
             test_groups.insert(make_pair("main", group_main));
 

@@ -94,7 +94,7 @@ auto ComponentTest::RunTestCase(ComponentTestCase &test_case) -> void {
         const int expected = expected_output_pair.second.value;
         const int actual = GPIO::ReadInt(pin_block, expected_output_pair.second.is_signed);
         test_case.actual_output.insert(std::make_pair(expected_output_pair.first, TestNumber{actual, expected_output_pair.second.is_signed}));
-        if (expected == actual) {
+        if (expected != actual) {
             test_case.passed = false;
         }
     }
