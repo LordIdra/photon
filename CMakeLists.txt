@@ -12,6 +12,7 @@ SET(SOURCE_FILES
     "Assembler/Assembler.cpp"
     "CommandLine/CommandLine.cpp"
     "ComponentTest/ComponentTest.cpp"
+    "ComponentTest/ComponentTestPrint.cpp"
     "ComponentTest/ComponentTests.cpp"
     "Electronics/GPIO.cpp"
     "Files/Files.cpp"
