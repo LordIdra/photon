@@ -43,11 +43,21 @@ namespace ComponentTestPrint {
             for (const auto &expected_output_pair : test_case.expected_output) {
                 const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
                 const int expected = expected_output_pair.second.value;
-                const int actual = GPIO::ReadInt(pin_block, expected_output_pair.second.is_signed);
-                if (actual == expected) {
-                    std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | " << GREEN << actual << "\n";
+                const int actual = test_case.actual_output.at(expected_output_pair.first).value;
+                const int current = GPIO::ReadInt(pin_block, expected_output_pair.second.is_signed);
+
+                std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | ";
+
+                if (current == expected) {
+                    std::cout << GREEN << current << WHITE << " | " << "\n";
                 } else {
-                    std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | " << RED << actual << "\n";
+                    std::cout << RED << current << WHITE << " | " << "\n";
+                }
+
+                if (actual == expected) {
+                    std::cout << GREEN << actual << WHITE << " | " << "\n";
+                } else {
+                    std::cout << RED << actual << WHITE << " | " << "\n";
                 }
             }
         }
