@@ -21,5 +21,6 @@ public:
 struct ComponentTestCase {
     unordered_map<string, TestNumber> input;
     unordered_map<string, TestNumber> expected_output;
+    unordered_map<string, TestNumber> actual_output;
     bool passed;
 };
