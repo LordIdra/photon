@@ -33,14 +33,15 @@
 
 class ComponentTest {
 private:
-    const int PROPAGATION_DELAY_MICROSECONDS = 100;
-
     Timer timer;
     unordered_map<string, GPIO::PinBlock> pin_blocks;
     unordered_map<string, vector<ComponentTestCase>> test_groups;
 
     auto Init() -> void;
-    auto LoopTestResults(const vector<ComponentTestCase> &tests) -> void;
+
+    auto GetPassedTests() -> unordered_map<string, int>;
+    auto GetTotalTests() -> unordered_map<string, int>;
+    auto PrintGroupResults(const unordered_map<string, int> &passed_tests_for_group, const unordered_map<string, int> &total_tests_for_group) -> void;
     auto PrintTestResults() -> void;
 
     auto RunTestCase(ComponentTestCase &test) -> void;

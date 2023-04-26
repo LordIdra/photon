@@ -1,6 +1,7 @@
 #include "GPIO.hpp"
 
 #include "../Util/Errors.hpp"
+#include "ComponentTest/ComponentTestCase.hpp"
 #include <wiringPi.h>
 
 
@@ -28,13 +29,11 @@ namespace GPIO {
         }
     }
 
-
-
-    auto Set(const PinBlock &block, const int value) -> void {
+    auto Set(const PinBlock &block, const TestNumber &value) -> void {
         if (block.mode != OUTPUT) {
             throw Errors::Electronics::InvalidPinMode();
         }
-        vector<bool> bits = SignedDenaryToBinary(value, block.pin_count);
+        vector<bool> bits = value.GetBinaryValue(block.pin_count);
         for (int pin = 0; pin < block.pin_count; pin++) {
             digitalWrite(pin_identifiers.at(block.starting_index + pin), bits[pin]);
         }
@@ -52,7 +51,10 @@ namespace GPIO {
         return bits;
     }
 
-    auto ReadInt(const PinBlock &block) -> int {
-        return SignedBinaryToDenary(ReadBinary(block));
+    auto ReadInt(const PinBlock &block, const bool is_signed) -> int {
+        if (is_signed) {
+            return SignedBinaryToDenary(ReadBinary(block));
+        }
+        return UnsignedBinaryToDenary(ReadBinary(block));
     }
 }

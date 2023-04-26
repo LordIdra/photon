@@ -2,6 +2,7 @@
 
 #include "../Util/Colors.hpp"
 #include "ComponentTest/ComponentTestCase.hpp"
+#include "ComponentTestPrint.hpp"
 #include "Electronics/GPIO.hpp"
 #include "Util/Errors.hpp"
 
@@ -21,117 +22,9 @@ auto ComponentTest::Init() -> void {
     GPIO::Setup(blocks);
 }
 
-auto ComponentTest::LoopTestResults(const vector<ComponentTestCase> &tests) -> void { //NOLINT(readability-convert-member-functions-to-static)
-    bool require_test_failed = true;
-    for (int i = 0; i < tests.size(); i++) {
-        ComponentTestCase test_case = tests.at(i);
-        if (require_test_failed && test_case.passed) {
-            continue;
-        }
-
-        std::cout << RED << "--- TEST CASE " << i << " ---" << "\n";
-
-        std::cout << WHITE << "Inputs" << "\n";
-        for (const auto &input_pair : test_case.input) {
-            std::cout << NO_COLOR << "- " << input_pair.first << ": " << CYAN << input_pair.second << "\n";
-        }
-        
-        std::cout << WHITE << "Outputs" << "\n";
-        if (test_case.expected_output.empty()) {
-            std::cout << NO_COLOR << "- N/A" << "\n";
-        }
-        for (const auto &input_pair : test_case.input) {
-            const GPIO::PinBlock &pin_block = pin_blocks.at(input_pair.first);
-            GPIO::Set(pin_block, input_pair.second);
-        }
-        for (const auto &expected_output_pair : test_case.expected_output) {
-            const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
-            const int expected = expected_output_pair.second;
-            const int actual = GPIO::ReadInt(pin_block);
-            if (actual == expected) {
-                std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | " << GREEN << actual << "\n";
-            } else {
-                std::cout << NO_COLOR << "- " << expected_output_pair.first << ": " << GREEN << expected << WHITE << " | " << RED << actual << "\n";
-            }
-        }
-
-        string command;
-        while ((command != "p") && (command != "n") && (command != "c") && (command != "e") && (command != "s")) {
-            std::cout << YELLOW << "[ " << WHITE << "p" << NO_COLOR << " = previous"
-                      << YELLOW << " | " << WHITE << "n" << NO_COLOR << " = next"
-                      << YELLOW << " | " << WHITE << "s" << NO_COLOR << " = skip"
-                      << YELLOW << " | " << WHITE << "c" << NO_COLOR << " = continue"
-                      << YELLOW << " | " << WHITE << "e" << NO_COLOR << " = exit"
-                      << YELLOW << " ]" << NO_COLOR << "\n";
-            std::cin >> command;
-        }
-
-        if (command == "p") {
-            if (i <= 0) {
-                cout << RED << "No previous test; staying on current test" << "\n";
-                i -= 1;
-                continue;
-            }
-            require_test_failed = false;
-            i-=2;
-        }
-
-        else if (command == "n") {
-            if (i >= tests.size()-1) {
-                cout << RED << "No next test; staying on current test" << "\n";
-                continue;
-            }
-            require_test_failed = false;
-        }
-
-        else if (command == "s") {
-            cout << WHITE << "Number of tests to skip" << CYAN << "\n";
-            string test_string;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> test_string;
-
-            const int test_count = std::stoi(test_string);
-            if ((test_count < 0) || (test_count > tests.size())) {
-                cout << RED << "Index out of bounds" << WHITE << "\n";
-                continue;
-            }
-
-            std::cout << test_count;
-
-            for (int j = 0; j < test_count; j++) {
-                ComponentTestCase new_test_case = tests.at(i);
-
-                for (const auto &input_pair : new_test_case.input) {
-                    const GPIO::PinBlock &pin_block = pin_blocks.at(input_pair.first);
-                    GPIO::Set(pin_block, input_pair.second);
-                    std::this_thread::sleep_for(std::chrono::microseconds(PROPAGATION_DELAY_MICROSECONDS));
-                }
-
-                i++;
-            }
-
-            std::cout << WHITE;
-        }
-
-        else if (command == "c") {
-            require_test_failed = true;
-        }
-
-        else if (command == "e") {
-            break;
-        }
-
-        std::cout << "\n";
-    }
-}
-
-auto ComponentTest::PrintTestResults() -> void {
+auto ComponentTest::GetPassedTests() -> unordered_map<string, int> {
     unordered_map<string, int> passed_tests_for_group;
-    unordered_map<string, int> total_tests_for_group;
-
     for (const auto &test_pair : test_groups) {
-        const int total_tests = test_pair.second.size();
         int passed_tests = 0;
         for (const ComponentTestCase &test_case : test_pair.second) {
             if (test_case.passed) {
@@ -139,20 +32,41 @@ auto ComponentTest::PrintTestResults() -> void {
             }
         }
         passed_tests_for_group.insert(make_pair(test_pair.first, passed_tests));
+    }
+    return passed_tests_for_group;
+}
+
+auto ComponentTest::GetTotalTests() -> unordered_map<string, int> {
+    unordered_map<string, int> total_tests_for_group;
+    for (const auto &test_pair : test_groups) {
+        const int total_tests = test_pair.second.size();
         total_tests_for_group.insert(make_pair(test_pair.first, total_tests));
     }
+    return total_tests_for_group;
+}
 
+auto ComponentTest::PrintGroupResults(const unordered_map<string, int> &passed_tests_for_group, const unordered_map<string, int> &total_tests_for_group) -> void {
     for (const auto &test_pair : test_groups) {
         cout << YELLOW << test_pair.first << 
             WHITE << " - " << CYAN << passed_tests_for_group.at(test_pair.first) << WHITE << "/" << CYAN << total_tests_for_group.at(test_pair.first) << "\n";
     }
-
     std::cout << "\n";
 
+}
+
+auto ComponentTest::PrintTestResults() -> void {
+    cout << WHITE << "[[[ Test complete in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << " ]]]" << NO_COLOR << "\n";
+
+    unordered_map<string, int> passed_tests_for_group = GetPassedTests();
+    unordered_map<string, int> total_tests_for_group = GetTotalTests();
+
+    PrintGroupResults(passed_tests_for_group, total_tests_for_group);
+    
     for (const auto &test_pair : test_groups) {
-        if (passed_tests_for_group.at(test_pair.first) != total_tests_for_group.at(test_pair.first)) {
+        const bool all_tests_passed = passed_tests_for_group.at(test_pair.first) == total_tests_for_group.at(test_pair.first);
+        if (!all_tests_passed) {
             cout << WHITE << "[[[ Looping test results for " << YELLOW << test_pair.first << WHITE << " ]]]" "\n";
-            LoopTestResults(test_pair.second);
+            ComponentTestPrint::LoopTestResults(test_pair.second, pin_blocks);
         }
     }
 }
@@ -162,7 +76,6 @@ auto ComponentTest::Run() -> void {
     timer.Start();
     RunTestGroups();
     timer.Stop();
-    cout << WHITE << "[[[ Test complete in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << " ]]]" << NO_COLOR << "\n";
     PrintTestResults();
 }
 
@@ -176,8 +89,8 @@ auto ComponentTest::RunTestCase(ComponentTestCase &test_case) -> void {
 
     for (const auto &expected_output_pair : test_case.expected_output) {
         const GPIO::PinBlock &pin_block = pin_blocks.at(expected_output_pair.first);
-        const int expected = expected_output_pair.second;
-        const int actual = GPIO::ReadInt(pin_block);
+        const int expected = expected_output_pair.second.value;
+        const int actual = GPIO::ReadInt(pin_block, expected_output_pair.second.is_signed);
         test_case.passed = expected == actual;
     }
 }

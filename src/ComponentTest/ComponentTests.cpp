@@ -19,11 +19,12 @@ namespace ComponentTests {
             group_main.reserve(4095);
             for (int x = 2; x < 4096; x++) {
                 group_main.push_back(ComponentTestCase{ 
-                    {{"Clk_write", 0}}, 
+                    {{"Clk_write", TestNumber{0, false}}}, 
                 });
                  group_main.push_back(ComponentTestCase{ 
-                    {{"Clk_write", 1}}, 
-                    {{"Data_out", x}} });
+                    {{"Clk_write", TestNumber{1, false}}}, 
+                    {{"Data_out", TestNumber{x, false}}}
+                });
             }
             test_groups.insert(make_pair("main", group_main));
 

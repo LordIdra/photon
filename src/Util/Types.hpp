@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <stack>
 #include <string>
@@ -29,3 +31,5 @@ using std::cout;
 using std::pair;
 using std::make_pair;
 using std::make_optional;
+
+const int PROPAGATION_DELAY_MICROSECONDS = 100;
