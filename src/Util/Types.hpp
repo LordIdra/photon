@@ -32,4 +32,4 @@ using std::pair;
 using std::make_pair;
 using std::make_optional;
 
-const int PROPAGATION_DELAY_MICROSECONDS = 100;
+const int PROPAGATION_DELAY_MICROSECONDS = 200;
