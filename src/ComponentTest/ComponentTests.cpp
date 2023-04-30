@@ -217,8 +217,8 @@ namespace ComponentTests {
             pin_blocks.insert(make_pair("Data_out", GPIO::PinBlock{20, 8, INPUT}));
 
             vector<ComponentTestCase> group_add;
-            for (int a = -128; a < 128; a+=33) {
-                for (int b = -128; b < 128; b+=33) {
+            for (int a = -128; a < 128; a++) {
+                for (int b = -128; b < 128; b++) {
                     int unsigned_a = a;
                     int unsigned_b = b;
 
@@ -256,8 +256,8 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Add", group_add));
 
             vector<ComponentTestCase> group_sub;
-            for (int a = -128; a < 128; a+=33) {
-                for (int b = -128; b < 128; b+=33) {
+            for (int a = -128; a < 128; a++) {
+                for (int b = -128; b < 128; b++) {
                     int unsigned_a = a;
                     int unsigned_b = b;
 
@@ -295,7 +295,7 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Subtract", group_sub));
 
             vector<ComponentTestCase> group_inc;
-            for (int a = -128; a < 127; a+=33) {
+            for (int a = -128; a < 127; a++) {
                 group_inc.push_back(ComponentTestCase{ 
                     {
                         {"Data-1_in", TestNumber{a, true}},
@@ -313,7 +313,7 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Increment", group_inc));
 
             vector<ComponentTestCase> group_dec;
-            for (int a = -127; a < 128; a+=33) {
+            for (int a = -127; a < 128; a++) {
                 group_dec.push_back(ComponentTestCase{ 
                     {
                         {"Data-1_in", TestNumber{a, true}}, 
@@ -331,7 +331,7 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Decrement", group_dec));
 
             vector<ComponentTestCase> group_inv;
-            for (int b = -127; b < 128; b+=33) {
+            for (int b = -127; b < 128; b++) {
                 group_inv.push_back(ComponentTestCase{ 
                     {
                         {"Data-1_in", TestNumber{0, false}}, 
@@ -348,7 +348,7 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Invert", group_inv));
 
             vector<ComponentTestCase> group_not;
-            for (int b = -127; b < 128; b+=33) {
+            for (int b = -127; b < 128; b++) {
                 group_not.push_back(ComponentTestCase{ 
                     {
                         {"Data-1_in", TestNumber{0, false}}, 
@@ -365,8 +365,8 @@ namespace ComponentTests {
             test_groups.insert(make_pair("Not", group_not));
 
             vector<ComponentTestCase> group_xor;
-            for (int a = -127; a < 128; a+=33) {
-                for (int b = -127; b < 128; b+=33) {
+            for (int a = -127; a < 128; a++) {
+                for (int b = -127; b < 128; b++) {
                     group_xor.push_back(ComponentTestCase{ 
                         {
                             {"Data-1_in", TestNumber{a, true}}, 
@@ -401,8 +401,8 @@ namespace ComponentTests {
             pin_blocks.insert(make_pair("Data_out", GPIO::PinBlock{20, 8, INPUT}));
 
             vector<ComponentTestCase> group_and;
-            for (int a = -128; a < 128; a+=33) {
-                for (int b = -128; b < 128; b+=33) {
+            for (int a = -128; a < 128; a++) {
+                for (int b = -128; b < 128; b++) {
                     group_and.push_back(ComponentTestCase{ 
                         {
                             {"Data-1_in", TestNumber{a, true}}, 
