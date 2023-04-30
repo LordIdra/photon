@@ -323,7 +323,7 @@ namespace ComponentTests {
                         {"Propagate", TestNumber{1, false}}
                     },
                     {
-                        {"Carry", TestNumber{0, false}}, 
+                        {"Carry", TestNumber{1, false}}, 
                         {"Data_out", TestNumber{a-1, true}}
                     } 
                 });
