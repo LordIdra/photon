@@ -42,7 +42,7 @@ auto UnsignedBinaryToDenary(const vector<bool> &bits) -> int {
 
 auto SignedBinaryToDenary(const vector<bool> &bits) -> int {
     int result = UnsignedBinaryToDenary(bits);
-    if (result > Pow(2, int(bits.size()-1))) {
+    if (result >= Pow(2, int(bits.size()-1))) {
         result -= Pow(2, bits.size());
     }
     return result;
