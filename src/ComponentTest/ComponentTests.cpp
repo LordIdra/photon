@@ -229,7 +229,7 @@ namespace ComponentTests {
                         unsigned_b += 256;
                     }
 
-                    const bool carry = (unsigned_a+unsigned_b)>256;
+                    const bool carry = (unsigned_a+unsigned_b)>=256;
                     
                     int result = a+b;
                     if (result > 127) {
@@ -268,7 +268,7 @@ namespace ComponentTests {
                         unsigned_b += 256;
                     }
 
-                    const bool carry = (unsigned_a+unsigned_b)>256;
+                    const bool carry = !((unsigned_a+unsigned_b)>=256);
 
                     int result = a-b;
                     if (result > 127) {
