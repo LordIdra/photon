@@ -219,7 +219,17 @@ namespace ComponentTests {
             vector<ComponentTestCase> group_add;
             for (int a = -128; a < 128; a+=33) {
                 for (int b = -128; b < 128; b+=33) {
-                    const bool carry = ((a+b)>127) || (a+b<-128);
+                    int unsigned_a = a;
+                    int unsigned_b = b;
+
+                    if (unsigned_a < 0) {
+                        unsigned_a += 256;
+                    }
+                    if (unsigned_b < 0) {
+                        unsigned_b += 256;
+                    }
+
+                    const bool carry = (a+b)>128;
                     
                     int result = a+b;
                     if (result > 127) {
@@ -248,7 +258,7 @@ namespace ComponentTests {
             vector<ComponentTestCase> group_sub;
             for (int a = -128; a < 128; a+=33) {
                 for (int b = -128; b < 128; b+=33) {
-                    const bool carry = !( ((a+b)>127) || (a+b<-128) );
+                    const bool carry = !( ((a+b)>127) || ((a+b)<-128) );
 
                     int result = a-b;
                     if (result > 127) {
