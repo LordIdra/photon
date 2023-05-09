@@ -93,6 +93,11 @@ namespace ProgramMemory {
     }
 
     auto Write(const vector<int> &assembly) -> void {
+        GPIO::SetupWiringPi();
+        GPIO::SetupPinBlock(block_address);
+        GPIO::SetupPinBlock(block_not_write_enable);
+        GPIO::SetupPinBlock(block_not_output_enable);
+        
         // Write pass
         timer.Start();
         for (int address = 0; address < assembly.size(); address++) {
