@@ -55,4 +55,11 @@ namespace Errors {
             NothingToExpect(const string &file, const int line);
         };
     }
+
+    namespace ProgramMemory {
+        class ProgramTooLarge : public std::runtime_error {
+        public:
+            ProgramTooLarge(const int size);
+        };
+    }
 }

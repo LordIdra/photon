@@ -212,4 +212,16 @@ namespace Assembler {
         pair<int, int> bytes = AssembleToDenary(file_, line, instruction);
         return to_string(bytes.first) + " " + to_string(bytes.second);
     }
+
+    auto AssembleLinesToDenary(const string &file_, const vector<string> lines) -> vector<int> {
+        vector<int> assembly;
+        int i = 1;
+        for (const string &line : lines) {
+            const auto pair = AssembleToDenary(file_, i, line);
+            assembly.push_back(pair.first);
+            assembly.push_back(pair.second);
+            i++;
+        }
+        return assembly;
+    }
 }

@@ -1,7 +1,10 @@
 #pragma once
 
+#include "Util/Util.hpp"
+
 
 
 namespace ProgramMemory {
-    auto Test(const int WRITE_DELAY_MICROSECONDS, const int READ_DELAY_MICROSECONDS) -> void;
+    auto Test() -> void;
+    auto Write(const vector<int> &assembly) -> void;
 }

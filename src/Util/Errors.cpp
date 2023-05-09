@@ -1,4 +1,5 @@
 #include "Assembler/Assembler.hpp"
+#include "Util/Colors.hpp"
 #include <Util/Errors.hpp>
 
 #include <iostream>
@@ -52,5 +53,14 @@ namespace Errors {
         NothingToExpect::NothingToExpect(const string &file, const int line) : std::runtime_error(
             Prefix(file, line) +
             RED + "Nothing to expect"+ WHITE + "\n") {}
+    }
+
+    namespace ProgramMemory {
+        ProgramTooLarge::ProgramTooLarge(const int size) : std::runtime_error(
+            RED + "Program too large at " + 
+            YELLOW + std::to_string(size) + 
+            RED + " out of max " +
+            YELLOW + "4096" +
+            RED + " bytes" + "\n") {}
     }
 }

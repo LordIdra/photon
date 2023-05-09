@@ -107,4 +107,5 @@ namespace Assembler {
 
     auto AssembleToDenary(const string &file_, const int line_, const string &instruction) -> pair<int, int>;
     auto AssembleToString(const string &file_, const int line_, const string &instruction) -> string;
+    auto AssembleLinesToDenary(const string &file_, const vector<string> lines) -> vector<int>;
 }

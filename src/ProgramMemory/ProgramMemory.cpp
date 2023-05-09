@@ -29,7 +29,7 @@ namespace ProgramMemory {
             GPIO::Set(block_not_write_enable, TestNumber{0});
         }
 
-        auto Write(const int address, const int value, const int WRITE_DELAY_MICROSECONDS) -> void {
+        auto WriteData(const int address, const int value) -> void {
             GPIO::Set(block_address, TestNumber{address, false});
             GPIO::SetupPinBlock(block_data_out);
             GPIO::Set(block_data_out, TestNumber{value, false});
@@ -40,7 +40,7 @@ namespace ProgramMemory {
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
         }
 
-        auto Read(const int address, const int READ_DELAY_MICROSECONDS) -> int {
+        auto ReadData(const int address) -> int {
             SetModeRead();
             GPIO::SetupPinBlock(block_data_in);
             std::this_thread::sleep_for(std::chrono::microseconds(READ_DELAY_MICROSECONDS));
@@ -49,8 +49,12 @@ namespace ProgramMemory {
             return GPIO::ReadInt(block_data_in, false);
         }
 
+        void PrintWriteComplete() {
+            cout << WHITE << "Write completed in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << "\n";
+        }
+
         void PrintErrors(const int errors) {
-            cout << WHITE << "Completed in " << CYAN << timer.GetMilliseconds() << WHITE << "ms with ";
+            cout << WHITE << "Completed in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << "with ";
             if (errors == 0) {
                 cout << GREEN << 0;
             } else {
@@ -60,7 +64,7 @@ namespace ProgramMemory {
         }
     }
 
-    auto Test(const int WRITE_DELAY_MICROSECONDS, const int READ_DELAY_MICROSECONDS) -> void {
+    auto Test() -> void {
         timer.Start();
 
         GPIO::SetupWiringPi();
@@ -72,8 +76,8 @@ namespace ProgramMemory {
         
         for (int address = 0; address < 4096; address+=1024) {
             for (int number = 0; number < 10; number++) {
-                Write(address, number, WRITE_DELAY_MICROSECONDS);
-                const int data = Read(address, READ_DELAY_MICROSECONDS);
+                WriteData(address, number);
+                const int data = ReadData(address);
                 if (data != number) {
                     std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " 
                               << RED << "Expected " << YELLOW << number 
@@ -85,6 +89,32 @@ namespace ProgramMemory {
 
         timer.Stop();
 
+        PrintErrors(errors);
+    }
+
+    auto Write(const vector<int> &assembly) -> void {
+        // Write pass
+        timer.Start();
+        for (int address = 0; address < assembly.size(); address++) {
+            WriteData(address, assembly.at(address));
+        }
+        timer.Stop();
+        PrintWriteComplete();
+
+        // Verify pass
+        timer.Start();
+        int errors = 0;
+        for (int address = 0; address < assembly.size(); address++) {
+            const int expected = assembly.at(address);
+            const int actual = ReadData(address);
+            if (actual != expected) {
+                std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " 
+                          << RED << "Expected " << YELLOW << expected 
+                          << RED << " but got " << YELLOW << actual << "\n";
+                errors ++;
+            }
+        }
+        timer.Stop();
         PrintErrors(errors);
     }
 }
