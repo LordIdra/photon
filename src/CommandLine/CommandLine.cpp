@@ -99,6 +99,11 @@ namespace CommandLine {
             return;
         }
 
+        if (arguments.at(0) == "write-program") {
+            WriteProgram(arguments);
+            return;
+        }
+
         DisplayHelpMessage();
     }
 }
