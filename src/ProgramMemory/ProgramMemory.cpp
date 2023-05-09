@@ -74,8 +74,8 @@ namespace ProgramMemory {
 
         int errors = 0;
         
-        for (int address = 0; address < 4096; address+=1024) {
-            for (int number = 0; number < 10; number++) {
+        for (int address = 0; address < 4096; address++) {
+            for (int number = 0; number < 3; number++) {
                 WriteData(address, number);
                 const int data = ReadData(address);
                 if (data != number) {
@@ -97,7 +97,7 @@ namespace ProgramMemory {
         GPIO::SetupPinBlock(block_address);
         GPIO::SetupPinBlock(block_not_write_enable);
         GPIO::SetupPinBlock(block_not_output_enable);
-        
+
         // Write pass
         timer.Start();
         for (int address = 0; address < assembly.size(); address++) {
