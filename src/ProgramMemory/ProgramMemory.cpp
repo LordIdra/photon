@@ -33,18 +33,18 @@ namespace ProgramMemory {
             GPIO::Set(block_address, TestNumber{address, false});
             GPIO::SetupPinBlock(block_data_out);
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
-            GPIO::Set(block_data_out, TestNumber{value, true});
+            GPIO::Set(block_data_out, TestNumber{value, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
             SetModeWrite();
         }
 
-        auto Read(const int address) -> unsigned int {
+        auto Read(const int address) -> int {
             SetModeRead();
             GPIO::SetupPinBlock(block_data_in);
             std::this_thread::sleep_for(std::chrono::microseconds(READ_DELAY_MICROSECONDS));
             GPIO::Set(block_address, TestNumber{address, false});
             std::this_thread::sleep_for(std::chrono::microseconds(READ_DELAY_MICROSECONDS));
-            return GPIO::ReadInt(block_data_in, true);
+            return GPIO::ReadInt(block_data_in, false);
         }
 
         void PrintErrors(const int errors) {
@@ -66,17 +66,16 @@ namespace ProgramMemory {
         GPIO::SetupPinBlock(block_not_write_enable);
         GPIO::SetupPinBlock(block_not_output_enable);
 
-        GPIO::Set(block_not_write_enable, TestNumber{0});
-        GPIO::Set(block_not_output_enable, TestNumber{0});
-
         int errors = 0;
         
         for (int address = 0; address < 4096; address+=1024) {
-            for (int number = -5; number < 5; number++) {
+            for (int number = 0; number < 10; number++) {
                 Write(address, number);
-                const unsigned int data = Read(address);
+                const int data = Read(address);
                 if (data != number) {
-                    std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " << RED << "Expected " << YELLOW << number << " but got" << YELLOW << data << "\n";
+                    std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " 
+                              << RED << "Expected " << YELLOW << number 
+                              << RED << " but got " << YELLOW << data << "\n";
                     errors ++;
                 }
             }
