@@ -53,8 +53,8 @@ namespace CommandLine {
             else { std::cout << "Invalid component; available components are [MemAdderAndRPC, SCU, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
         }
 
-        auto TestEEPROM() -> void {
-            ProgramMemory::Test();
+        auto TestEEPROM(const int WRITE_DELAY_MICROSECONDS, const int READ_DELAY_MICROSECONDS) -> void {
+            ProgramMemory::Test(WRITE_DELAY_MICROSECONDS, READ_DELAY_MICROSECONDS);
         }
     }
 
