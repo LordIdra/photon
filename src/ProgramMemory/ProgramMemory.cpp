@@ -36,6 +36,7 @@ namespace ProgramMemory {
             GPIO::Set(block_data_out, TestNumber{value, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
             SetModeWrite();
+            std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
         }
 
         auto Read(const int address) -> int {
