@@ -37,6 +37,7 @@ namespace ProgramMemory {
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
             SetModeWrite();
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
+            SetModeRead();
         }
 
         auto Read(const int address) -> int {
