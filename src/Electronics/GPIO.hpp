@@ -13,6 +13,7 @@ namespace GPIO {
         int mode;
     };
 
+    auto SetupWiringPi() -> void;
     auto SetupPinBlock(const PinBlock &block) -> void;
     auto Setup(const vector<PinBlock> &blocks) -> void;
 

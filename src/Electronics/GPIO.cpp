@@ -16,6 +16,10 @@ namespace GPIO {
 
 
 
+    auto SetupWiringPi() -> void {
+        wiringPiSetup();
+    }
+
     auto SetupPinBlock(const PinBlock &block) -> void {
         for (int pin = 0; pin < block.pin_count; pin++) {
             pinMode(pin_identifiers.at(block.starting_index + pin), block.mode);

@@ -1,4 +1,4 @@
-#include "gpio.cpp"
+#include "GPIO.cpp"
 
 #include "../../util/logging.cpp"
 #include "../../util/read_hex.cpp"

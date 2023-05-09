@@ -3,6 +3,7 @@
 #include "ComponentTest/ComponentTests.hpp"
 #include "Files/Files.hpp"
 #include "SimulationTestBuilder/SimulationTestBuilder.hpp"
+#include "ProgramMemory/ProgramMemory.hpp"
 
 
 
@@ -15,6 +16,8 @@ namespace CommandLine {
             std::cout << "Photon Subcommands" << "\n";
             std::cout << "    build-simulation-tests: Compiles all the simulation tests in resources/tests/inputs and outputs them in resources/tests/outputs" << "\n";
             std::cout << "    run-component-test [name]: Attempts to run the specified component test using GPIO pins" << "\n";
+            std::cout << "    test-eeprom: Verifies the integrity of the EEPROM" << "\n";
+            std::cout << "    write-program [file]: Assembles the specified file and writes it to a connected EEPROM" << "\n";
         }
 
         auto BuildSimulationTests() -> void {
@@ -48,6 +51,10 @@ namespace CommandLine {
             else if (name == "ALU-OutCarry")  { ComponentTests::TestALU_OutCarry(); } 
             else if (name == "ALU-OutOr")     { ComponentTests::TestALU_OutOr(); } 
             else { std::cout << "Invalid component; available components are [MemAdderAndRPC, SCU, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
+        }
+
+        auto TestEEPROM() -> void {
+            ProgramMemory::Test();
         }
     }
 
