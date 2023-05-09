@@ -33,5 +33,5 @@ using std::make_pair;
 using std::make_optional;
 
 const int PROPAGATION_DELAY_MICROSECONDS = 200;
-const int READ_DELAY_MICROSECONDS = 2000;
-const int WRITE_DELAY_MICROSECONDS = 2000;
+const int READ_DELAY_MICROSECONDS = 2;
+const int WRITE_DELAY_MICROSECONDS = 2;
