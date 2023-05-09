@@ -3,5 +3,5 @@
 
 
 namespace ProgramMemory {
-    auto Test() -> void;
+    auto Test(const int WRITE_DELAY_MICROSECONDS, const int READ_DELAY_MICROSECONDS) -> void;
 }

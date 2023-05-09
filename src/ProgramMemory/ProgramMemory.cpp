@@ -29,7 +29,7 @@ namespace ProgramMemory {
             GPIO::Set(block_not_write_enable, TestNumber{0});
         }
 
-        auto Write(const int address, const int value) -> void {
+        auto Write(const int address, const int value, const int WRITE_DELAY_MICROSECONDS) -> void {
             GPIO::Set(block_address, TestNumber{address, false});
             GPIO::SetupPinBlock(block_data_out);
             GPIO::Set(block_data_out, TestNumber{value, false});
@@ -40,7 +40,7 @@ namespace ProgramMemory {
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
         }
 
-        auto Read(const int address) -> int {
+        auto Read(const int address, const int READ_DELAY_MICROSECONDS) -> int {
             SetModeRead();
             GPIO::SetupPinBlock(block_data_in);
             std::this_thread::sleep_for(std::chrono::microseconds(READ_DELAY_MICROSECONDS));
@@ -60,7 +60,7 @@ namespace ProgramMemory {
         }
     }
 
-    auto Test() -> void {
+    auto Test(const int WRITE_DELAY_MICROSECONDS, const int READ_DELAY_MICROSECONDS) -> void {
         timer.Start();
 
         GPIO::SetupWiringPi();
@@ -72,8 +72,8 @@ namespace ProgramMemory {
         
         for (int address = 0; address < 4096; address+=1024) {
             for (int number = 0; number < 10; number++) {
-                Write(address, number);
-                const int data = Read(address);
+                Write(address, number, WRITE_DELAY_MICROSECONDS);
+                const int data = Read(address, READ_DELAY_MICROSECONDS);
                 if (data != number) {
                     std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " 
                               << RED << "Expected " << YELLOW << number 

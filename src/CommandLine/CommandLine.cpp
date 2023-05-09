@@ -75,7 +75,7 @@ namespace CommandLine {
         }
 
         if (arguments.at(0) == "test-eeprom") {
-            TestEEPROM();
+            TestEEPROM(std::stoi(arguments.at(1)), std::stoi(arguments.at(2)));
             return;
         }
 
