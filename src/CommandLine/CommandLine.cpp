@@ -66,7 +66,7 @@ namespace CommandLine {
                 return;
             }
 
-            const string name = arguments.at(1);
+            const string name = PROGRAM_FILES + arguments.at(1);
             const vector<string> lines = Files::Read(name);
             const vector<int> assembly = Assembler::AssembleLinesToDenary(name, lines);
 
