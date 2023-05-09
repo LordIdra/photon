@@ -54,7 +54,7 @@ namespace ProgramMemory {
         }
 
         void PrintErrors(const int errors) {
-            cout << WHITE << "Completed in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << "with ";
+            cout << WHITE << "Completed in " << CYAN << timer.GetMilliseconds() << "ms" << WHITE << " with ";
             if (errors == 0) {
                 cout << GREEN << 0;
             } else {
