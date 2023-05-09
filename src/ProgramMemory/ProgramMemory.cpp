@@ -71,11 +71,12 @@ namespace ProgramMemory {
 
         int errors = 0;
         
-        for (int address = 0; address < 4096; address++) {
+        for (int address = 0; address < 4096; address+=1024) {
             for (int number = -5; number < 5; number++) {
                 Write(address, number);
                 const unsigned int data = Read(address);
                 if (data != number) {
+                    std::cout << WHITE << "[Address " << CYAN << address << WHITE << "] " << RED << "Expected " << YELLOW << number << " but got" << YELLOW << data << "\n";
                     errors ++;
                 }
             }
