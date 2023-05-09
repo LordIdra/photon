@@ -74,6 +74,11 @@ namespace CommandLine {
             return;
         }
 
+        if (arguments.at(0) == "test-eeprom") {
+            TestEEPROM();
+            return;
+        }
+
         DisplayHelpMessage();
     }
 }
