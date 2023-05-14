@@ -101,7 +101,7 @@ namespace ComponentTestPrint {
             SetInputs(pin_blocks, test_case);
             PrintOutputs(pin_blocks, test_case);
 
-            char command = GetCommand();
+            const char command = GetCommand();
 
             if (command == 'p') {
                 if (i <= 0) {

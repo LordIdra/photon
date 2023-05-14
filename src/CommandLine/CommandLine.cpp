@@ -4,7 +4,8 @@
 #include "ComponentTest/ComponentTests.hpp"
 #include "Files/Files.hpp"
 #include "SimulationTestBuilder/SimulationTestBuilder.hpp"
-#include "ProgramMemory/ProgramMemory.hpp"
+#include "Electronics/ProgramMemory.hpp"
+#include "Electronics/Debug.hpp"
 #include "Util/Errors.hpp"
 
 
@@ -21,6 +22,7 @@ namespace CommandLine {
             std::cout << "    run-component-test [name]: Attempts to run the specified component test using GPIO pins" << "\n";
             std::cout << "    test-eeprom: Verifies the integrity of the EEPROM" << "\n";
             std::cout << "    write-program [file]: Assembles the specified file and writes it to a connected EEPROM" << "\n";
+            std::cout << "    debug: Allows sending clock pulses to the last GPIO pin for debugging" << "\n";
         }
 
         auto BuildSimulationTests() -> void {
@@ -101,6 +103,11 @@ namespace CommandLine {
 
         if (arguments.at(0) == "write-program") {
             WriteProgram(arguments);
+            return;
+        }
+
+        if (arguments.at(0) == "debug") {
+            Debug::DebugLoop();
             return;
         }
 
