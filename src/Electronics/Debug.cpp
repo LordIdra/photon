@@ -13,8 +13,8 @@ namespace Debug {
 
         auto GetCommand() -> char {
             string command;
-            while ((command != "") && (command != "s") && (command != "e")) {
-                std::cout << YELLOW << "[ " << WHITE << "(press enter)" << NO_COLOR << " = next"
+            while ((command != "n") && (command != "s") && (command != "e")) {
+                std::cout << YELLOW << "[ " << WHITE << "n" << NO_COLOR << " = next"
                         << YELLOW << " | " << WHITE << "s" << NO_COLOR << " = skip"
                         << YELLOW << " | " << WHITE << "e" << NO_COLOR << " = exit"
                         << YELLOW << " ]" << NO_COLOR << "\n";
@@ -47,7 +47,11 @@ namespace Debug {
         while (true) {
             const char command = GetCommand();
 
-            if (command == 's') {
+            if (command == 'n') {
+                SendClockPulse();
+            }
+
+            else if (command == 's') {
                 const int count = GetSkipCount();
                 for (int i = 0; i < count; i++) {
                     SendClockPulse();
@@ -56,10 +60,6 @@ namespace Debug {
 
             else if (command == 'e') {
                 break;
-            }
-
-            else {
-                SendClockPulse();
             }
         }
     }
