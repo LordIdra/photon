@@ -1,4 +1,4 @@
 SET 2 r1
-SET 5 r1
-SET 8 r1
+SET 5 r2
+ADD r1 r2
 HLT
