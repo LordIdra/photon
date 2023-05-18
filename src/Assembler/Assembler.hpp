@@ -6,6 +6,8 @@
 
 
 namespace Assembler {
+    const char COMMENT_CHARACTER = ';';
+
     const int WORD_SIZE = 8;
 
     const int MIN_REGISTER = 0;

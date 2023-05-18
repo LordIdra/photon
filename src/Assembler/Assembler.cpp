@@ -217,6 +217,9 @@ namespace Assembler {
         vector<int> assembly;
         int i = 1;
         for (const string &line : lines) {
+            if (line.empty() || (line.at(0) == COMMENT_CHARACTER)) {
+                continue;
+            }
             const auto pair = AssembleToDenary(file_, i, line);
             assembly.push_back(pair.first);
             assembly.push_back(pair.second);
