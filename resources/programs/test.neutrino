@@ -1,20 +1,4 @@
-SET 255 r1
-SET 2 r2
-;SET 4 r3
-;SET 8 r4
-; test
-
-;SET 16 r5
-;SET 32 r6
-;SET 64 r7
-;SET 128 r8
-
-;ADD r1 r2
-;ADD r1 r3
-;ADD r1 r4
-;ADD r1 r5
-;ADD r1 r6
-;ADD r1 r7
-;ADD r1 r8
-
+SET 2 r1
+SET 5 r2
+ADD r1 r2
 HLT
