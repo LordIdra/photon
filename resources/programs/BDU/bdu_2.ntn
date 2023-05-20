@@ -7,4 +7,4 @@
 SET 5 r1
 SET 85 r2
 
-BDU r1 r2
+BDU r2 r1
