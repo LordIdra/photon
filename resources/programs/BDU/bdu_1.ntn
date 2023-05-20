@@ -7,4 +7,4 @@
 SET 10 r1
 SET 170 r2
 
-BIU r1 r2
+BDU r1 r2
