@@ -1,0 +1,9 @@
+; Expected output
+; - 0101 0001
+
+; Assumptions 
+; - SET
+
+SET 82 r1
+
+DEC r1
