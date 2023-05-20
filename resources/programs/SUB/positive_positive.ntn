@@ -1,0 +1,10 @@
+; Expected output
+; - 0010 1010
+
+; Assumptions 
+; - SET
+
+SET 96 r1
+SET 54 r2
+
+SUB r1 r2
