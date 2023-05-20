@@ -1,0 +1,11 @@
+; Expected output
+; 0000 0000 0010
+
+; Assumptions
+; BIU SET TST
+
+SET -5 r1
+TST r1
+
+BIU 0
+BIG 2048
