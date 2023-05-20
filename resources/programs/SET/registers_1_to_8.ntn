@@ -1,8 +1,8 @@
 ; Expected output
-; - 1111 1111
+; 1111 1111
 
 ; Assumptions 
-; - ADD
+; ADD
 
 SET 1 r1
 SET 2 r2

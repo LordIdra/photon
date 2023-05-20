@@ -1,8 +1,8 @@
 ; Expected output
-; - 0011 1000
+; 0011 1000
 
 ; Assumptions
-; - N/A
+; SET
 
 SET -56 r1
 INV r1 r1

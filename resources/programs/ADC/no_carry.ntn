@@ -1,12 +1,14 @@
 ; Expected output
-; - 0010 1101
+; 0010 1101
 
 ; Assumptions 
-; - SET
+; SET ADD
 
 SET 30 r1
 SET 5 r2
 SET 10 r3
 
 ADD r2 r3
+; r2 = 15
+
 ADC r1 r2

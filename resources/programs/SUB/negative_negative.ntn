@@ -1,8 +1,8 @@
 ; Expected output
-; - 0001 0011
+; 0001 0011
 
 ; Assumptions 
-; - SET
+; SET
 
 SET -21 r1
 SET -40 r2

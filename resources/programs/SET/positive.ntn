@@ -1,7 +1,7 @@
 ; Expected output
-; - 1011 0101
+; 1011 0101
 
 ; Assumptions
-; - N/A
+; N/A
 
 SET 181 r1

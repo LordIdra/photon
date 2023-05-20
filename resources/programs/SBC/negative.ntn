@@ -2,7 +2,7 @@
 ; 0110 0001
 
 ; Assumptions 
-; SET ADD
+; SET
 
 SET 20 r1
 SET -80 r2
