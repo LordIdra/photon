@@ -1,14 +1,14 @@
 ; Expected output
-; - 0110 1001
+; - 0001 0111 
 
 ; Assumptions 
 ; - SET
 
 SET 100 r1
-SET -60 r2
-SET -200 r3
+SET -50 r2
+SET -100 r3
 
 ADD r2 r3
-; r1 = 4
+; r1 = 22
 
 ADC r1 r2
