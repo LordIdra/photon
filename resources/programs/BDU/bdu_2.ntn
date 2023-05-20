@@ -1,10 +1,17 @@
 ; Expected output
-; 0101 0101 0101
+; 0101 0101
 
 ; Assumptions
-; SET
+; SET MTD MFD STI
 
-SET 5 r1
+SET 0 r1
 SET 85 r2
 
-BDU r2 r1
+SET 5 r3
+SET 60 r4
+
+MTD r2
+STD r4 r3
+MTD r1
+LDD r4 r3
+MFD r1
