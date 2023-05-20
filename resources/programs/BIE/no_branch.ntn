@@ -8,4 +8,4 @@ SET 5 r1
 TST r1
 
 BIU 0
-BIL 2048
+BIE 2048

@@ -1,5 +1,5 @@
 ; Expected output
-; 0000 0000 0010
+; 1000 0000 0000
 
 ; Assumptions
 ; BIU SET TST
