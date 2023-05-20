@@ -1,14 +1,14 @@
 ; Expected output
-; 0000 1101
+; 0000 0101
 
 ; Assumptions 
 ; SET, SUB
 
-SET 120 r1
-SET 100 r2
+SET 2 r1
+SET -100 r2
 SET -50 r3
 
 SUB r2 r3
-; r2 = 106
+; r2 = -106
 
 SBC r1 r2
