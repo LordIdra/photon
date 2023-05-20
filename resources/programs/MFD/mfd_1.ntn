@@ -1,9 +1,9 @@
 ; Expected output
-; 0001 0111
+; 1010 1010
 
 ; Assumptions 
 ; SET MTD
 
-SET 23 r4
-MTD r4
+SET 170 r1
+MTD r1
 MFD r1
