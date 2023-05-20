@@ -1,0 +1,10 @@
+; Expected output
+; 1010 1010 1010
+
+; Assumptions
+; SET
+
+SET 10 r1
+SET 170 r2
+
+BIU r1 r2

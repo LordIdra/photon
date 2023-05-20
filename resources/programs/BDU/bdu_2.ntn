@@ -1,0 +1,10 @@
+; Expected output
+; 0101 0101 0101
+
+; Assumptions
+; SET
+
+SET 5 r1
+SET 85 r2
+
+BIU r1 r2
