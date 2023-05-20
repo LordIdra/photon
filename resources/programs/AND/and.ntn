@@ -1,0 +1,12 @@
+; Expected output
+; 0000 0100
+
+; Assumptions
+; SET
+
+; Computation
+; 0001 1100 and 1100 0100 = 0000 0100
+
+SET 28 r1
+SET -60 r2
+AND r1 r2

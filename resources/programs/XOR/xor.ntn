@@ -1,0 +1,12 @@
+; Expected output
+; 1100 1000
+
+; Assumptions
+; SET
+
+; Computation
+; 0001 1100 xor 1100 0100 = 1101 1000
+
+SET 28 r1
+SET -60 r2
+XOR r1 r2

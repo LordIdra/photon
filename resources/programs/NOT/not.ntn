@@ -1,0 +1,11 @@
+; Expected output
+; 1101 1100
+
+; Assumptions
+; SET
+
+; Computation
+; not 0001 1100 = 1110 0011
+
+SET 28 r1
+NOT r1 r1
