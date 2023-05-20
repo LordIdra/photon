@@ -119,7 +119,7 @@ namespace Assembler {
             // Check actual and expected operand count match
             const int expected_operand_count = OPERANDS.at(opcode_string).size();
             if (operand_strings.size() != expected_operand_count) {
-                throw Errors::Assembler::InvalidOperandCount(file, line, operand_strings.size(), expected_operand_count);
+                throw Errors::Assembler::InvalidOperandCount(file, line, expected_operand_count, operand_strings.size());
             }
 
             // Convert string operands to int operands
@@ -218,6 +218,7 @@ namespace Assembler {
         int i = 1;
         for (const string &line : lines) {
             if (line.empty() || (line.at(0) == COMMENT_CHARACTER)) {
+                i++;
                 continue;
             }
             assembly.push_back(AssembleToDenary(file_, i, line));
