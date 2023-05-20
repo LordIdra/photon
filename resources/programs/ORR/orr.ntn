@@ -9,4 +9,4 @@
 
 SET 28 r1
 SET -60 r2
-AND r1 r2
+ORR r1 r2
