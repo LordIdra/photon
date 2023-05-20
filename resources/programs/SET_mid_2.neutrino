@@ -1,3 +1,9 @@
+; Expected output
+; - 0011 1111
+
+; Assumptions 
+; - ADD
+
 SET 1 r9
 SET 2 r10
 SET 4 r11
@@ -11,5 +17,3 @@ ADD r1 r11
 ADD r1 r12
 ADD r1 r13
 ADD r1 r14
-
-HLT
