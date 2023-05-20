@@ -1,0 +1,9 @@
+; Expected output
+; 0001 0111
+
+; Assumptions 
+; SET MTD
+
+SET 23 r4
+MTD r4
+MFD r1
