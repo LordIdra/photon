@@ -1,0 +1,15 @@
+; r1 = 1
+SET 1 r2
+
+; r3 r4 - counter
+SET 0 r3
+SET 5 r4
+
+; decrement counter
+SUB r3 r2
+SBC r4 r2
+MOV r1 r3
+BIU 6
+
+; end
+HLT
