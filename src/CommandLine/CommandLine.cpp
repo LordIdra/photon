@@ -2,6 +2,7 @@
 
 #include "Assembler/Assembler.hpp"
 #include "ComponentTest/ComponentTests.hpp"
+#include "ComponentTest/IntegrationTests.hpp"
 #include "Files/Files.hpp"
 #include "SimulationTestBuilder/SimulationTestBuilder.hpp"
 #include "Electronics/ProgramMemory.hpp"
@@ -20,6 +21,8 @@ namespace CommandLine {
             std::cout << "Photon Subcommands" << "\n";
             std::cout << "    build-simulation-tests: Compiles all the simulation tests in resources/tests/inputs and outputs them in resources/tests/outputs" << "\n";
             std::cout << "    run-component-test [name]: Attempts to run the specified component test using GPIO pins" << "\n";
+            std::cout << "    run-integration-test [name]: Attempts to run the specified integration test using GPIO pins" << "\n";
+            std::cout << "    reset-integration-pins [name]: Reset the integration test pins" << "\n";
             std::cout << "    test-eeprom: Verifies the integrity of the EEPROM" << "\n";
             std::cout << "    write-program [file]: Assembles the specified file and writes it to a connected EEPROM" << "\n";
             std::cout << "    debug: Allows sending clock pulses to the last GPIO pin for debugging" << "\n";
@@ -49,13 +52,25 @@ namespace CommandLine {
             const string name = arguments.at(1);
 
             if      (name == "MemAdderAndRPC"){ ComponentTests::TestMemAdderAndRPC(); } 
-            else if (name == "SCU")           { ComponentTests::TestSCU(); } 
             else if (name == "RegisterFile")  { ComponentTests::TestRegisterFile(); } 
             else if (name == "ALU-OutFlags")  { ComponentTests::TestALU_OutFlags(); } 
             else if (name == "ALU-OutResult") { ComponentTests::TestALU_OutResult(); } 
             else if (name == "ALU-OutCarry")  { ComponentTests::TestALU_OutCarry(); } 
             else if (name == "ALU-OutOr")     { ComponentTests::TestALU_OutOr(); } 
-            else { std::cout << "Invalid component; available components are [MemAdderAndRPC, SCU, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
+            else { std::cout << "Invalid component; available components are [MemAdderAndRPC, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
+        }
+
+        auto RunIntegrationTest(const vector<string> &arguments) {
+            if (arguments.size() != 2) {
+                std::cout << "Incorrect number of arguments" << "\n";
+                return;
+            }
+
+            const string name = PROGRAM_FILES + arguments.at(1);
+            const vector<string> lines = Files::Read(name);
+            const vector<pair<int, int>> assembly = Assembler::AssembleLinesToDenaryPairs(name, lines);
+
+            IntegrationTests::RunInstructions(assembly);
         }
 
         auto TestEEPROM() -> void {
@@ -93,6 +108,16 @@ namespace CommandLine {
 
         if (arguments.at(0) == "run-component-test") {
             RunComponentTest(arguments);
+            return;
+        }
+
+        if (arguments.at(0) == "run-integration-test") {
+            RunIntegrationTest(arguments);
+            return;
+        }
+
+        if (arguments.at(0) == "reset-integration-pins") {
+            IntegrationTests::ResetTestPins();
             return;
         }
 

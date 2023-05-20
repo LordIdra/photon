@@ -107,15 +107,6 @@ namespace ComponentTests {
             return ComponentTest(pin_blocks, test_groups);
         }
 
-        auto SCU() -> ComponentTest {
-            // TODO
-            
-            unordered_map<string, GPIO::PinBlock> pin_blocks;
-            unordered_map<string, vector<ComponentTestCase>> test_groups;
-
-            return ComponentTest(pin_blocks, test_groups);
-        }
-
         auto ALU_OutFlags() -> ComponentTest {
             unordered_map<string, GPIO::PinBlock> pin_blocks;
             unordered_map<string, vector<ComponentTestCase>> test_groups;
@@ -459,10 +450,6 @@ namespace ComponentTests {
 
     auto TestMemAdderAndRPC() -> void {
         Generate::MemAdderAndRPC().Run();
-    }
-
-    auto TestSCU() -> void {
-        Generate::SCU().Run();
     }
 
     auto TestRegisterFile() -> void {

@@ -213,6 +213,19 @@ namespace Assembler {
         return to_string(bytes.first) + " " + to_string(bytes.second);
     }
 
+    auto AssembleLinesToDenaryPairs(const string &file_, const vector<string> lines) -> vector<pair<int, int>> {
+        vector<pair<int, int>> assembly;
+        int i = 1;
+        for (const string &line : lines) {
+            if (line.empty() || (line.at(0) == COMMENT_CHARACTER)) {
+                continue;
+            }
+            assembly.push_back(AssembleToDenary(file_, i, line));
+            i++;
+        }
+        return assembly;
+    }
+
     auto AssembleLinesToDenary(const string &file_, const vector<string> lines) -> vector<int> {
         vector<int> assembly;
         int i = 1;
