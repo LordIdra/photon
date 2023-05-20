@@ -15,9 +15,9 @@ namespace IntegrationTests {
         int line = 1;
 
         auto ClockPulse() -> void {
-            GPIO::Set(data_block, TestNumber{1, false});
+            GPIO::Set(clock_block, TestNumber{1, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
-            GPIO::Set(data_block, TestNumber{0, false});
+            GPIO::Set(clock_block, TestNumber{0, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
         }
 

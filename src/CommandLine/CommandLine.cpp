@@ -22,7 +22,7 @@ namespace CommandLine {
             std::cout << "    build-simulation-tests: Compiles all the simulation tests in resources/tests/inputs and outputs them in resources/tests/outputs" << "\n";
             std::cout << "    run-component-test [name]: Attempts to run the specified component test using GPIO pins" << "\n";
             std::cout << "    run-integration-test [name]: Attempts to run the specified integration test using GPIO pins" << "\n";
-            std::cout << "    reset-integration-pins [name]: Reset the integration test pins" << "\n";
+            std::cout << "    reset-integration-pins: Reset the integration test pins" << "\n";
             std::cout << "    test-eeprom: Verifies the integrity of the EEPROM" << "\n";
             std::cout << "    write-program [file]: Assembles the specified file and writes it to a connected EEPROM" << "\n";
             std::cout << "    debug: Allows sending clock pulses to the last GPIO pin for debugging" << "\n";
