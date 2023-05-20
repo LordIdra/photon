@@ -4,7 +4,6 @@
 ; Assumptions 
 ; SET
 
-SET -52 r1
-SET 30 r2
+SET -57 r1
 
-CMP r1 r2
+TST r1

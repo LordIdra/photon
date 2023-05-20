@@ -1,10 +1,10 @@
 ; Expected output
-; notequal greater
+; equal
 
 ; Assumptions 
 ; SET
 
-SET 51 r1
-SET 50 r2
+SET -52 r1
+SET -52 r2
 
 CMP r1 r2
