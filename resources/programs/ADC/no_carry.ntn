@@ -1,0 +1,12 @@
+; Expected output
+; - 0010 1101
+
+; Assumptions 
+; - SET
+
+SET 30 r1
+SET 5 r2
+SET 10 r3
+
+ADD r2 r3
+ADC r1 r2
