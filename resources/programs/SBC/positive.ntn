@@ -1,14 +1,20 @@
 ; Expected output
-; 0000 1101
+; 0000 1110
 
 ; Assumptions 
-; SET, SUB
+; SET, SUB, MOV
 
-SET 120 r1
-SET -100 r2
-SET 50 r3
+; Computation
+; 4880 - 1000 -> (256*19 + 16) - (256*4 + 36)
 
-SUB r2 r3
-; r2 = 106
+SET 19 r2
+SET 16 r3
 
-SBC r1 r2
+SET 4 r4
+SET 36 r5
+
+SUB r3 r5
+; r3 = -20
+
+SBC r2 r4
+; r4 = 15 - 1 = 14
