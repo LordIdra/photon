@@ -1,0 +1,14 @@
+; Expected output
+; 0101 0101
+
+; Assumptions
+; SET MTD MFD STI
+
+SET 0 r1
+SET 85 r2
+
+MTD r2
+STI 234
+MTD r1
+LDI 234
+MFD r1
