@@ -17,43 +17,35 @@ namespace IntegrationTests {
 
         auto GetCommand() -> char {
             string command;
-            while ((command != "n") && (command != "s") && (command != "e")) {
+            while (command != "n") {
                 std::cout << YELLOW << "[ " << WHITE << "n" << NO_COLOR << " = next"
-                        << YELLOW << " | " << WHITE << "s" << NO_COLOR << " = skip"
-                        << YELLOW << " | " << WHITE << "e" << NO_COLOR << " = exit"
                         << YELLOW << " ]" << NO_COLOR << "\n";
                 std::cin >> command;
             }
             return command.at(0);
         }
 
-        auto GetSkipCount() -> int {
-            cout << WHITE << "Number of pulses to skip" << CYAN << "\n";
-            string test_string;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> test_string;
-            return std::stoi(test_string);
-        }
-
-        auto ClockPulse() -> void {
+        auto ClockPulse(const bool debug_mode) -> void {
+            if (debug_mode) {
+                GetCommand();
+            }
             GPIO::Set(clock_block, TestNumber{1, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
             GPIO::Set(clock_block, TestNumber{0, false});
             std::this_thread::sleep_for(std::chrono::microseconds(WRITE_DELAY_MICROSECONDS));
         }
 
-        auto Run(const pair<int, int> &instruction) -> void {
+        auto Run(const bool debug_mode, const pair<int, int> &instruction) -> void {
             GPIO::Set(data_block, TestNumber{instruction.first, false});
-            ClockPulse();
+            ClockPulse(debug_mode);
             GPIO::Set(data_block, TestNumber{instruction.second, false});
-            ClockPulse();
-            ClockPulse();
-            ClockPulse();
-            ClockPulse();
-            ClockPulse();
-            ClockPulse();
-            ClockPulse();
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
+            ClockPulse(debug_mode);
             line++;
         }
 
@@ -72,21 +64,8 @@ namespace IntegrationTests {
 
     auto RunInstructions(const bool debug_mode, const vector<pair<int, int>> &instructions) -> void {
         Init();
-        int to_skip = 0;
         for (const pair<int, int> &instruction : instructions) {
-            if (debug_mode && (to_skip == 0)) {
-                const char command = GetCommand();
-                if (command == 'n') {
-                    continue;
-                }
-
-                else if (command == 's') {
-                    const int count = GetSkipCount();
-                    to_skip = count;
-                }
-            }
-            to_skip--;
-            Run(instruction);
+            Run(debug_mode, instruction);
         }
     }
 }
