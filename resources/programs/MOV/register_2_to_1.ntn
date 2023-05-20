@@ -5,4 +5,4 @@
 ; - SET
 
 SET 23 r2
-MOV r2 r1
+MOV r1 r2
