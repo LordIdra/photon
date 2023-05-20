@@ -1,0 +1,9 @@
+; Expected output
+; equal
+
+; Assumptions 
+; SET
+
+SET 0 r1
+
+TST r1

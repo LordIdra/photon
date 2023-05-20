@@ -1,0 +1,9 @@
+; Expected output
+; notequal less
+
+; Assumptions 
+; SET
+
+SET -57 r1
+
+TST r1
