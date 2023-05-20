@@ -1,15 +1,78 @@
-; r1 = 1
-SET 1 r2
-
-; r3 r4 - counter
+; current address
+SET 0 r2
 SET 0 r3
-SET 5 r4
+
+; store durations
+SET 15 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 12 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 8 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 2 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 2 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 8 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 12 r4
+MTD r4
+STD r2 r3
+INC r2
+
+SET 15 r4
+MTD r4
+STD r2 r3
+INC r2
+
+; current duration address
+SET 0 r2
+SET 0 r3
+
+; counter
+SET 0 r4
+SET 0 r5
+
+; subtract each time
+SET 1 r6
+
+; current lamp
+SET 1 r7
+
+; load duration (address 82)
+LDD r2 r3
+INC r2
+MFD r5
 
 ; decrement counter
-SUB r3 r2
-SBC r4 r2
-MOV r1 r3
-BIU 6
+SUB r4 r6
+SBC r5 r6
+
+; set current lamp
+MOV r1 r7
+ADD r7 r7 
+
+; branch to load duration
+TST r5
+BIN 82
 
 ; end
 HLT
