@@ -22,6 +22,7 @@ namespace CommandLine {
             std::cout << "    build-simulation-tests: Compiles all the simulation tests in resources/tests/inputs and outputs them in resources/tests/outputs" << "\n";
             std::cout << "    run-component-test [name]: Attempts to run the specified component test using GPIO pins" << "\n";
             std::cout << "    run-integration-test [name]: Attempts to run the specified integration test using GPIO pins" << "\n";
+            std::cout << "    debug-integration-test [name]: Performs run-integration-test in debug mode" << "\n";
             std::cout << "    reset-integration-pins: Reset the integration test pins" << "\n";
             std::cout << "    test-eeprom: Verifies the integrity of the EEPROM" << "\n";
             std::cout << "    write-program [file]: Assembles the specified file and writes it to a connected EEPROM" << "\n";
@@ -60,7 +61,7 @@ namespace CommandLine {
             else { std::cout << "Invalid component; available components are [MemAdderAndRPC, RegisterFile, ALU-OutFlags, ALU-OutResult, ALU-OutCarry, ALU-OutOr]" << "\n"; }
         }
 
-        auto RunIntegrationTest(const vector<string> &arguments) {
+        auto RunIntegrationTest(const vector<string> &arguments) -> void {
             if (arguments.size() != 2) {
                 std::cout << "Incorrect number of arguments" << "\n";
                 return;
@@ -70,7 +71,20 @@ namespace CommandLine {
             const vector<string> lines = Files::Read(name);
             const vector<pair<int, int>> assembly = Assembler::AssembleLinesToDenaryPairs(name, lines);
 
-            IntegrationTests::RunInstructions(assembly);
+            IntegrationTests::RunInstructions(false, assembly);
+        }
+
+        auto DebugIntegrationTest(const vector<string> &arguments) -> void {
+            if (arguments.size() != 2) {
+                std::cout << "Incorrect number of arguments" << "\n";
+                return;
+            }
+
+            const string name = PROGRAM_FILES + arguments.at(1);
+            const vector<string> lines = Files::Read(name);
+            const vector<pair<int, int>> assembly = Assembler::AssembleLinesToDenaryPairs(name, lines);
+
+            IntegrationTests::RunInstructions(true, assembly);
         }
 
         auto TestEEPROM() -> void {
@@ -113,6 +127,11 @@ namespace CommandLine {
 
         if (arguments.at(0) == "run-integration-test") {
             RunIntegrationTest(arguments);
+            return;
+        }
+
+        if (arguments.at(0) == "debug-integration-test") {
+            DebugIntegrationTest(arguments);
             return;
         }
 
