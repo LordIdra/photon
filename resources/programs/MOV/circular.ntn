@@ -1,0 +1,21 @@
+; Expected output
+; - 1001 0100
+
+; Assumptions
+; - SET
+
+SET 148 r2
+
+MOV r3 r2
+MOV r4 r3
+MOV r5 r4
+MOV r6 r5
+MOV r7 r6
+MOV r8 r7
+MOV r9 r8
+MOV r10 r9
+MOV r11 r10
+MOV r12 r11
+MOV r13 r12
+MOV r14 r13
+MOV r1 r14

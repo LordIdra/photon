@@ -1,9 +1,0 @@
-; Expected output
-; - 1010 1010
-
-; Assumptions 
-; - MOV
-
-SET 170 r11
-
-MOV r1 r11
