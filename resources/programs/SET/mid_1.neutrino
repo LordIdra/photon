@@ -13,7 +13,6 @@ SET 32 r6
 SET 64 r7
 SET 128 r8
 
-ADD r1 r1
 ADD r1 r2
 ADD r1 r3
 ADD r1 r4
