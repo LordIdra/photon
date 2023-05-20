@@ -1,0 +1,14 @@
+; Expected output
+; 0000 0000 0010
+
+; Assumptions
+; BIU SET TST
+
+SET -30 r1
+TST r1
+
+SET 8 r2
+SET 0 r3
+
+BIU 0
+BDG r3 r2
