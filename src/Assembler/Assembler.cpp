@@ -232,6 +232,7 @@ namespace Assembler {
         int i = 1;
         for (const string &line : lines) {
             if (line.empty() || (line.at(0) == COMMENT_CHARACTER)) {
+                i++;
                 continue;
             }
             const auto pair = AssembleToDenary(file_, i, line);

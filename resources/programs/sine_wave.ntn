@@ -68,7 +68,7 @@ SBC r5 r6
 
 ; set current lamp
 MOV r1 r7
-ADD r7 r7 
+ADD r7 r7
 
 ; branch to load duration
 TST r5
