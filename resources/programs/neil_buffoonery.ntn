@@ -1,12 +1,12 @@
 SET 5 r1
 SET 36 r2
-MOV r3 r1
+SET 0 r3
 
-DEC r3
-TST r3
+DEC r1
+TST r1
 BIG 16
-ADD r1 r2
+ADD r3 r2
 HLT
 
-ADD r1 r2
+ADD r3 r2
 BIU 6
