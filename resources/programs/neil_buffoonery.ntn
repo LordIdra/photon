@@ -1,0 +1,15 @@
+SET 5 r1
+SET 36 r2
+MOV r1 r3
+
+DEC r3
+TST r3
+BIG 9
+ADD r2 r1
+HLT
+
+ADD r2 r1
+BIU 4
+
+
+
