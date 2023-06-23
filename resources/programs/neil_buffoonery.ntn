@@ -4,12 +4,12 @@ MOV r3 r1
 
 DEC r3
 TST r3
-BIG 9
+BIG 18
 ADD r1 r2
 HLT
 
 ADD r1 r2
-BIU 4
+BIU 8
 
 
 
