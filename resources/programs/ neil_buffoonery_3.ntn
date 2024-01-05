@@ -1,0 +1,10 @@
+SET 10 r1
+SET 3 r2
+
+CMP r1 r2
+BIG 12
+BIE 12
+HLT
+
+SUB r1 r2
+BIU 4
