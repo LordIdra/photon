@@ -1,0 +1,15 @@
+set 5 r1
+set 6 r2
+add r2 r1
+set 245 r2
+add r2 r1
+adc r2 r1
+mtd r1
+sti 255
+set 24 r2
+set 0 r1
+bdu r1 r2
+set 255 r1
+ldi 255
+mfd r1
+HLT
