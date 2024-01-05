@@ -1,14 +1,14 @@
 SET 5 r1
 SET 6 r2
-ADD r2 r1
+ADD r1 r2
 SET 245 r2
-ADD r2 r1
-ADC r2 r1
+ADD r1 r2
+ADC r1 r2
 MTD r1
 STI 255
 SET 24 r2
 SET 0 r1
-BDU r1 r2
+BDU r2 r1
 SET 255 r1
 LDI 255
 MFD r1
